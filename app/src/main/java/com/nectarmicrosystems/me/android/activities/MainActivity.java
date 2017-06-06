@@ -2,6 +2,8 @@ package com.nectarmicrosystems.me.android.activities;
 
 import android.util.Log;
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.app.AppCompatActivity;
 
@@ -20,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Window w = getWindow();
+        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         setContentView(R.layout.activity_main);
         setupViewComponents();
     }
