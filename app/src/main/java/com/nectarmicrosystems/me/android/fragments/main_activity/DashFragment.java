@@ -19,7 +19,7 @@ public class DashFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_dash_main_activity, container, false);
-        return super.onCreateView(inflater, container, savedInstanceState);
+        return rootView;
     }
 
 }
