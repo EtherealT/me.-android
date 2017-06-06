@@ -3,11 +3,11 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.nectarmicrosystems.vizerr.entities.CustomViewPager
+    <com.nectarmicrosystems.me.android.entities.CustomViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </com.nectarmicrosystems.vizerr.entities.CustomViewPager>
+    </com.nectarmicrosystems.me.android.entities.CustomViewPager>
 
 </LinearLayout>

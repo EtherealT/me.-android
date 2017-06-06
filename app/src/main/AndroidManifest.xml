@@ -22,7 +22,7 @@
         </activity>
 
         <activity
-            android:name="android.activities.MainActivity"
+            android:name=".android.activities.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
 
