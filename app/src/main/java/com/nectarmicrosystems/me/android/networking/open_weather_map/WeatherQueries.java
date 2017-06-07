@@ -14,7 +14,7 @@ import static com.nectarmicrosystems.me.android.networking.NetworkUtils.query;
 
 class WeatherQueries {
 
-    private static final String BASE_URL = "api.openweathermap.org/data/2.5/weather?q=";
+    private static final String BASE_URL = "api.openweathermap.org/data/2.5/";
     private static final String API_KEY = Sensitive.OPEN_WEATHER_MAP_API_KEY;
 
     /**
@@ -38,7 +38,7 @@ class WeatherQueries {
      */
     public static String getCurrentWeather(String city) throws IOException {
         try {
-            URL url = new URL(BASE_URL + city + "&appid=" + API_KEY);
+            URL url = new URL(BASE_URL + "weather?q=" + city + "&appid=" + API_KEY);
             return query(url);
         } catch (MalformedURLException e) {
             e.printStackTrace();
