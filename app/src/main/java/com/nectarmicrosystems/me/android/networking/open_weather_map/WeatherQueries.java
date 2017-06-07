@@ -14,7 +14,7 @@ import static com.nectarmicrosystems.me.android.networking.NetworkUtils.query;
 
 class WeatherQueries {
 
-    private static final String BASE_URL = "api.openweathermap.org/data/2.5/";
+    private static final String BASE_URL = "http://api.openweathermap.org/data/2.5/";
     private static final String API_KEY = Sensitive.OPEN_WEATHER_MAP_API_KEY;
 
     /**
