@@ -10,7 +10,9 @@ public class TestUtils {
 
     public static void setupLogger(Logger logger){
         Handler ch = new ConsoleHandler();
+        ch.setLevel(Level.ALL);
         logger.addHandler(ch);
+        logger.setLevel(Level.ALL);
         logger.setUseParentHandlers(false);
     }
 

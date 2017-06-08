@@ -28,7 +28,7 @@ public class WeatherQueriesTest {
         String response = WeatherQueries.getCurrentWeather(TEST_CITY);
         Assert.assertFalse(response.isEmpty());
         Assert.assertTrue(response.contains(TEST_CITY));
-        LOGGER.log(Level.FINE, "current weather by city response: " + response);
+        LOGGER.log(Level.INFO, "current weather by city response: " + response);
     }
 
     @Test
@@ -36,7 +36,7 @@ public class WeatherQueriesTest {
         String response = WeatherQueries.getCurrentWeather(TEST_CITY, TEST_COUNTRY_ISO);
         Assert.assertFalse(response.isEmpty());
         Assert.assertTrue(response.contains(TEST_CITY));
-        LOGGER.log(Level.FINE, "current weather by city and ISO response: " + response);
+        LOGGER.log(Level.INFO, "current weather by city and ISO response: " + response);
     }
 
     @Test
@@ -44,7 +44,7 @@ public class WeatherQueriesTest {
         String response = WeatherQueries.getWeatherForecast(TEST_CITY);
         Assert.assertFalse(response.isEmpty());
         Assert.assertTrue(response.contains(TEST_CITY));
-        LOGGER.log(Level.FINE, "weather forecast by city response: " + response);
+        LOGGER.log(Level.INFO, "weather forecast by city response: " + response);
     }
 
     @Test
