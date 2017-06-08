@@ -2,10 +2,9 @@ package com.nectarmicrosystems.me.android.networking.open_weather_map;
 
 import com.nectarmicrosystems.me.android.TestUtils;
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
+import org.junit.*;
 
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -20,7 +19,7 @@ public class WeatherQueriesTest {
     private final String TEST_COUNTRY_ISO = "HU";
 
     @BeforeClass
-    public void setup(){
+    public static void setup(){
         TestUtils.setupLogger(LOGGER);
     }
 
@@ -29,7 +28,7 @@ public class WeatherQueriesTest {
         String response = WeatherQueries.getCurrentWeather(TEST_CITY);
         Assert.assertFalse(response.isEmpty());
         Assert.assertTrue(response.contains(TEST_CITY));
-        LOGGER.info("current weather by city response: " + response);
+        LOGGER.log(Level.FINE, "current weather by city response: " + response);
     }
 
     @Test
@@ -37,7 +36,7 @@ public class WeatherQueriesTest {
         String response = WeatherQueries.getCurrentWeather(TEST_CITY, TEST_COUNTRY_ISO);
         Assert.assertFalse(response.isEmpty());
         Assert.assertTrue(response.contains(TEST_CITY));
-        LOGGER.info("current weather by city and ISO response: " + response);
+        LOGGER.log(Level.FINE, "current weather by city and ISO response: " + response);
     }
 
     @Test
@@ -45,7 +44,7 @@ public class WeatherQueriesTest {
         String response = WeatherQueries.getWeatherForecast(TEST_CITY);
         Assert.assertFalse(response.isEmpty());
         Assert.assertTrue(response.contains(TEST_CITY));
-        LOGGER.info("weather forecast by city response: " + response);
+        LOGGER.log(Level.FINE, "weather forecast by city response: " + response);
     }
 
     @Test
@@ -53,7 +52,7 @@ public class WeatherQueriesTest {
         String response = WeatherQueries.getWeatherForecast(TEST_CITY, TEST_COUNTRY_ISO);
         Assert.assertFalse(response.isEmpty());
         Assert.assertTrue(response.contains(TEST_CITY));
-        LOGGER.info("weather forecast by city and ISO response: " + response);
+        LOGGER.log(Level.INFO, "weather forecast by city and ISO response: " + response);
     }
 
 }

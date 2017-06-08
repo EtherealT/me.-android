@@ -9,9 +9,9 @@ import java.util.logging.*;
 public class TestUtils {
 
     public static void setupLogger(Logger logger){
-        SimpleFormatter fmt = new SimpleFormatter();
-        StreamHandler sh = new StreamHandler(System.out, fmt);
-        logger.addHandler(sh);
+        Handler ch = new ConsoleHandler();
+        logger.addHandler(ch);
+        logger.setUseParentHandlers(false);
     }
 
 }
