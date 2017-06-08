@@ -9,9 +9,10 @@ import java.util.logging.*;
 public class TestUtils {
 
     public static void setupLogger(Logger logger){
-        Handler ch = new ConsoleHandler();
-        ch.setLevel(Level.ALL);
-        logger.addHandler(ch);
+        Handler consoleHandler = new ConsoleHandler();
+        consoleHandler.setLevel(Level.ALL);
+
+        logger.addHandler(consoleHandler);
         logger.setLevel(Level.ALL);
         logger.setUseParentHandlers(false);
     }
