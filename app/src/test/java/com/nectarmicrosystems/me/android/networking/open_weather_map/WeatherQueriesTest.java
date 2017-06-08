@@ -6,7 +6,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 
-import java.io.IOException;
 import java.util.logging.Logger;
 
 /**
@@ -26,19 +25,35 @@ public class WeatherQueriesTest {
     }
 
     @Test
-    public void getCurrentWeatherByCityTest() throws IOException {
+    public void getCurrentWeatherByCity(){
         String response = WeatherQueries.getCurrentWeather(TEST_CITY);
         Assert.assertFalse(response.isEmpty());
         Assert.assertTrue(response.contains(TEST_CITY));
-        LOGGER.info("weather by city response: " + response);
+        LOGGER.info("current weather by city response: " + response);
     }
 
     @Test
-    public void getCurrentWeatherByCityAndCountryISO() throws IOException {
+    public void getCurrentWeatherByCityAndCountryISO(){
         String response = WeatherQueries.getCurrentWeather(TEST_CITY, TEST_COUNTRY_ISO);
         Assert.assertFalse(response.isEmpty());
         Assert.assertTrue(response.contains(TEST_CITY));
-        LOGGER.info("weather by city and ISO response: " + response);
+        LOGGER.info("current weather by city and ISO response: " + response);
+    }
+
+    @Test
+    public void getWeatherForecastByCity(){
+        String response = WeatherQueries.getWeatherForecast(TEST_CITY);
+        Assert.assertFalse(response.isEmpty());
+        Assert.assertTrue(response.contains(TEST_CITY));
+        LOGGER.info("weather forecast by city response: " + response);
+    }
+
+    @Test
+    public void getWeatherForecastByCityAndCountryISO(){
+        String response = WeatherQueries.getWeatherForecast(TEST_CITY, TEST_COUNTRY_ISO);
+        Assert.assertFalse(response.isEmpty());
+        Assert.assertTrue(response.contains(TEST_CITY));
+        LOGGER.info("weather forecast by city and ISO response: " + response);
     }
 
 }
