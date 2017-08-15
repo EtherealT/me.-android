@@ -1,16 +1,20 @@
 package com.nectarmicrosystems.me.android.networking.open_weather_map;
 
+import android.support.test.runner.AndroidJUnit4;
+
 import com.nectarmicrosystems.me.android.TestUtils;
 
 import org.junit.*;
+import org.junit.runner.RunWith;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Created by Tobi Adeyinka on 2017. 06. 07..
+ * Created by Tobi Adeyinka on 2017. 08. 15..
  */
 
+@RunWith(AndroidJUnit4.class)
 public class WeatherQueriesTest {
 
     private static final Logger LOGGER = Logger.getLogger(WeatherQueriesTest.class.getCanonicalName());
