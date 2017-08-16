@@ -11,6 +11,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
+import com.nectarmicrosystems.me.R;
 import com.nectarmicrosystems.me.android.utilities.SecurityManager;
 
 import java.util.List;
@@ -79,6 +80,7 @@ public class SplashActivity extends AppCompatActivity {
         SecurityManager securityManager = new SecurityManager(this);
         Class nextActivity = securityManager.checkPasswordProtection() ? PasswordActivity.class : MainActivity.class;
         startActivity(new Intent(this, nextActivity));
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right); // animation
         finish();
     }
 
