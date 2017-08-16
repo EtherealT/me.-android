@@ -1,9 +1,8 @@
 package com.nectarmicrosystems.me.android.utilities;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
+import android.support.test.InstrumentationRegistry;
 
 import com.nectarmicrosystems.me.android.TestUtils;
 
@@ -12,7 +11,7 @@ import org.junit.runner.RunWith;
 
 import java.util.logging.Logger;
 
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 
 /**
  * Created by Tobi Adeyinka on 2017. 08. 15..
@@ -43,4 +42,14 @@ public class SecurityManagerTest {
         assertNotEquals(preferencesManager.getPasswordHash(), "");
     }
 
+    @Test
+    public void testCorrectPasswordVerification() {
+        assertTrue(securityManager.verifyPassword(PASSWORD));
+    }
+
+    @Test
+    public void testWrongPasswordVerification() {
+        assertFalse(securityManager.verifyPassword("wrong pssword"));
+    }
+    
 }
