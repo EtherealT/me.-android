@@ -27,6 +27,9 @@ public class SecurityManager {
     }
 
     public void setPassword(String password){
+        /*
+         * TODO look for an encryption method
+         */
         String hashedPassword = password;
         preferencesManager.setPasswordHash(hashedPassword);
     }
