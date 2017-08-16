@@ -23,10 +23,14 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".android.activities.PasswordActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
         <activity
             android:name=".android.activities.MainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
-        <activity android:name=".android.activities.PasswordActivity"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

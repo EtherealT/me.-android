@@ -80,7 +80,7 @@ public class SplashActivity extends AppCompatActivity {
         SecurityManager securityManager = new SecurityManager(this);
         Class nextActivity = securityManager.checkPasswordProtection() ? PasswordActivity.class : MainActivity.class;
         startActivity(new Intent(this, nextActivity));
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right); // animation
+        overridePendingTransition(R.anim.animation_enter, R.anim.animation_leave);
         finish();
     }
 

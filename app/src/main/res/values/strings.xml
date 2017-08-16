@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Me.</string>
+    <string name="password" translatable="true">Password</string>
 </resources>
