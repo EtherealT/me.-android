@@ -32,8 +32,6 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    compile group: 'org.mindrot', name: 'jbcrypt', version: '0.3m'
-
     androidTestCompile group: 'junit', name: 'junit-dep', version: '4.11'
     androidTestCompile group: 'org.mockito', name: 'mockito-core', version: '1.10.19'
 

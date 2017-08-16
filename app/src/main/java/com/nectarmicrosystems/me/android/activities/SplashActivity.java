@@ -11,7 +11,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
-import com.nectarmicrosystems.me.R;
 import com.nectarmicrosystems.me.android.utilities.SecurityManager;
 
 import java.util.List;

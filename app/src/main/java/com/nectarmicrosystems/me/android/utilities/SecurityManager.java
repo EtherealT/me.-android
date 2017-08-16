@@ -2,8 +2,6 @@ package com.nectarmicrosystems.me.android.utilities;
 
 import android.content.Context;
 
-import org.mindrot.jbcrypt.BCrypt;
-
 /**
  * Created by Tobi Adeyinka on 2017. 08. 15..
  *
@@ -15,19 +13,26 @@ public class SecurityManager {
     private Context context;
     private PreferencesManager preferencesManager;
 
+    /*
+     * This is used to hold the stored hashed password in memory
+     * to avoid accessing database for each character when verifying
+     * the entered password on text change
+     */
+    private final String hashedPassword;
+
     public SecurityManager(Context context) {
         this.context = context;
         preferencesManager = new PreferencesManager(context);
+        hashedPassword = preferencesManager.getPasswordHash();
     }
 
     public void setPassword(String password){
-        String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
+        String hashedPassword = password;
         preferencesManager.setPasswordHash(hashedPassword);
     }
 
     public boolean verifyPassword(String password){
-        String hashedPassword = preferencesManager.getPasswordHash();
-        return BCrypt.checkpw(password, hashedPassword);
+        return password.equals(hashedPassword);
     }
 
     public void enablePasswordProtection(){
