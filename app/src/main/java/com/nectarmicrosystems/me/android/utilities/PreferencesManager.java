@@ -36,7 +36,7 @@ public class PreferencesManager {
 
     public void setPasswordHash(String passwordHash){
         Log.i(PreferencesManager.class.getCanonicalName(), "saving password hash");
-        preferences.edit().putString(PASSWORD_HASH_KEY, passwordHash);
+        preferences.edit().putString(PASSWORD_HASH_KEY, passwordHash).apply();
     }
 
     public String getPasswordHash(){

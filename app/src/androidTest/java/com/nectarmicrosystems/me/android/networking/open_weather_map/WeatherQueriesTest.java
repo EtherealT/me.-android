@@ -28,7 +28,7 @@ public class WeatherQueriesTest {
     }
 
     @Test
-    public void getCurrentWeatherByCity(){
+    public void testGetCurrentWeatherByCity(){
         String response = WeatherQueries.getCurrentWeather(TEST_CITY);
         Assert.assertFalse(response.isEmpty());
         Assert.assertTrue(response.contains(TEST_CITY));
@@ -36,7 +36,7 @@ public class WeatherQueriesTest {
     }
 
     @Test
-    public void getCurrentWeatherByCityAndCountryISO(){
+    public void testGetCurrentWeatherByCityAndCountryISO(){
         String response = WeatherQueries.getCurrentWeather(TEST_CITY, TEST_COUNTRY_ISO);
         Assert.assertFalse(response.isEmpty());
         Assert.assertTrue(response.contains(TEST_CITY));
@@ -44,7 +44,7 @@ public class WeatherQueriesTest {
     }
 
     @Test
-    public void getWeatherForecastByCity(){
+    public void testGetWeatherForecastByCity(){
         String response = WeatherQueries.getWeatherForecast(TEST_CITY);
         Assert.assertFalse(response.isEmpty());
         Assert.assertTrue(response.contains(TEST_CITY));
@@ -52,7 +52,7 @@ public class WeatherQueriesTest {
     }
 
     @Test
-    public void getWeatherForecastByCityAndCountryISO(){
+    public void testGetWeatherForecastByCityAndCountryISO(){
         String response = WeatherQueries.getWeatherForecast(TEST_CITY, TEST_COUNTRY_ISO);
         Assert.assertFalse(response.isEmpty());
         Assert.assertTrue(response.contains(TEST_CITY));

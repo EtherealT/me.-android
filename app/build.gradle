@@ -37,9 +37,11 @@ dependencies {
     compile group: 'org.mindrot', name: 'jbcrypt', version: '0.3m'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
 
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.6.2'
-    testCompile group: 'com.google.inject', name: 'guice', version: '4.1.0'
+    androidTestCompile "com.crittercism.dexmaker:dexmaker:1.4"
+    androidTestCompile "com.crittercism.dexmaker:dexmaker-dx:1.4"
+    androidTestCompile "com.crittercism.dexmaker:dexmaker-mockito:1.4"
+    androidTestCompile group: 'junit', name: 'junit-dep', version: '4.11'
+    androidTestCompile group: 'org.mockito', name: 'mockito-core', version: '1.10.19'
 
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
