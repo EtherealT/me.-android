@@ -49,7 +49,7 @@ public class SecurityManagerTest {
 
     @Test
     public void testWrongPasswordVerification() {
-        assertFalse(securityManager.verifyPassword("wrong pssword"));
+        assertFalse(securityManager.verifyPassword("wrong password"));
     }
     
 }

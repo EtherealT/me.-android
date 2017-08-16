@@ -25,9 +25,8 @@
 
         <activity
             android:name=".android.activities.MainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        </activity>
-
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity android:name=".android.activities.PasswordActivity"></activity>
     </application>
 
 </manifest>

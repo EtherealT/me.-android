@@ -30,6 +30,14 @@ public class SecurityManager {
         return BCrypt.checkpw(password, hashedPassword);
     }
 
+    public void enablePasswordProtection(){
+        preferencesManager.setPasswordProtected(true);
+    }
+
+    public void disablePasswordProtection(){
+        preferencesManager.setPasswordProtected(false);
+    }
+
     public boolean checkPasswordProtection(){
         return preferencesManager.isPasswordProtected();
     }

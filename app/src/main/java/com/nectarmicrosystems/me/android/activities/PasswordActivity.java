@@ -1,18 +1,16 @@
 package com.nectarmicrosystems.me.android.activities;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-/**
- * Created by Tobi Adeyinka on 2017. 08. 16..
- */
+import com.nectarmicrosystems.me.R;
 
 public class PasswordActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_password);
+        getSupportActionBar().hide();
     }
-
 }
