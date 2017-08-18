@@ -12,6 +12,7 @@ public abstract class ConfigValues {
     static final String FINANCE_ENTRIES_TABLE = "finance_entries";
     static final String INCOME_ENTRIES_TABLE = "income_entries";
     static final String EXPENSE_ENTRIES_TABLE = "expense_entries";
+    static final String FINANCE_ACCOUNTS_TABLE = "finance_accounts";
 
     static final String ID = "id";
 
