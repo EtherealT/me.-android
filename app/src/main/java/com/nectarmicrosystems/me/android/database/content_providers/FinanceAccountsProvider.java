@@ -45,7 +45,7 @@ public class FinanceAccountsProvider extends ContentProvider {
     @Nullable
     @Override
     public Cursor query(@NonNull Uri uri, @Nullable String[] projection, @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
-        return null;
+        return accountsTable.query(selection, selectionArgs, sortOrder);
     }
 
     @Nullable
@@ -63,6 +63,7 @@ public class FinanceAccountsProvider extends ContentProvider {
 
     @Override
     public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs) {
+        accountsTable.delete(selection, selectionArgs);
         return 0;
     }
 

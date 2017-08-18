@@ -12,6 +12,8 @@ import org.junit.*;
 import java.math.BigDecimal;
 import java.util.logging.Logger;
 
+import static org.junit.Assert.assertEquals;
+
 /**
  * Created by Tobi Adeyinka on 2017. 08. 18..
  */
@@ -27,13 +29,22 @@ public class FinanceAccountsRepositoryTest {
         TestUtils.setupLogger(LOGGER);
         Context context = InstrumentationRegistry.getTargetContext();
         financeAccountsRepository = new FinanceAccountsRepository(context);
+        emptyDatabase();
     }
 
     @Test
     public void testInsertNewFinanceAccount(){
         FinanceAccount account = createFinanceAccountForTest();
         financeAccountsRepository.insert(account);
-        // TODO verify insertion
+        assertEquals(financeAccountsRepository.getAll().size(), 1);
+    }
+
+    /*
+     * empty the database after each test
+     */
+    @After
+    public void emptyDatabase(){
+        financeAccountsRepository.deleteAll();
     }
 
     private FinanceAccount createFinanceAccountForTest(){

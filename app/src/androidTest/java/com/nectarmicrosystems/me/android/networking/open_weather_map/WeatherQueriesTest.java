@@ -22,8 +22,8 @@ public class WeatherQueriesTest {
     private final String TEST_CITY = "Budapest";
     private final String TEST_COUNTRY_ISO = "HU";
 
-    @BeforeClass
-    public static void setup(){
+    @Before
+    public void setup(){
         TestUtils.setupLogger(LOGGER);
     }
 

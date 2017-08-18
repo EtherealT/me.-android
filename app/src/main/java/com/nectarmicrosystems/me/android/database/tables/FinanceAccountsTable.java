@@ -36,6 +36,22 @@ public class FinanceAccountsTable {
 
     @Nullable
     public Cursor query(@Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
-        return null;
+        return database.query(
+                ConfigValues.FINANCE_ACCOUNTS_TABLE,
+                ConfigValues.FINANCE_ACCOUNTS_TABLE_COLUMNS,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                sortOrder
+        );
+    }
+
+    public void delete(@Nullable String selection, @Nullable String[] selectionArgs){
+        database.delete(
+                ConfigValues.FINANCE_ACCOUNTS_TABLE,
+                selection,
+                selectionArgs
+        );
     }
 }

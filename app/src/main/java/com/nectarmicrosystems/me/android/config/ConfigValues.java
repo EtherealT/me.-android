@@ -23,6 +23,6 @@ public abstract class ConfigValues {
     public static final String ENTRY_TYPE = "entry_type";
     public static final String ACCOUNT_ID = "account_id";
 
-    public static final String[] FINANCE_ACCOUNTS_TABLE_COLUMNS = {};
+    public static final String[] FINANCE_ACCOUNTS_TABLE_COLUMNS = {ID, NAME, BALANCE, ACCOUNT_TYPE, CURRENCY};
 
 }

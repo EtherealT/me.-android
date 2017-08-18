@@ -1,5 +1,6 @@
 package com.nectarmicrosystems.me.android.database.repositories;
 
+import android.database.Cursor;
 import android.content.Context;
 import android.content.ContentValues;
 
@@ -24,9 +25,7 @@ public class FinanceAccountsRepository implements DatabaseRepository<FinanceAcco
     @Override
     public void insert(FinanceAccount data) {
         ContentValues values = data.asContentValues();
-        context.getApplicationContext()
-                .getContentResolver()
-                .insert(FinanceAccountsProvider.CONTENT_URI, values);
+        context.getContentResolver().insert(FinanceAccountsProvider.CONTENT_URI, values);
     }
 
     @Override
@@ -40,8 +39,24 @@ public class FinanceAccountsRepository implements DatabaseRepository<FinanceAcco
     }
 
     @Override
+    public void deleteAll() {
+        context.getContentResolver().delete(FinanceAccountsProvider.CONTENT_URI, null, null);
+    }
+
+    @Override
     public ArrayList<FinanceAccount> getAll() {
-        return null;
+        ArrayList<FinanceAccount> accounts = new ArrayList<>();
+
+        Cursor cursor = context.getApplicationContext()
+                .getContentResolver()
+                .query(FinanceAccountsProvider.CONTENT_URI, null, null, null,null, null);
+
+        if (cursor != null) {
+            while (cursor.moveToNext()) accounts.add(FinanceAccount.fromCursor(cursor));
+            cursor.close();
+        }
+
+        return accounts;
     }
 
     @Override

@@ -12,6 +12,7 @@ interface DatabaseRepository<T> {
     void insert(T data);
     void update(T data);
     void delete(UUID dataId);
+    void deleteAll();
     ArrayList<T> getAll();
     T getById(UUID dataId);
 
