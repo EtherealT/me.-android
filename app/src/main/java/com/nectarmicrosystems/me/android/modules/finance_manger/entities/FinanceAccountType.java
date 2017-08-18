@@ -6,5 +6,10 @@ package com.nectarmicrosystems.me.android.modules.finance_manger.entities;
 
 public enum FinanceAccountType {
     CURRENT,
-    SAVINGS
+    SAVINGS;
+
+    @Override
+    public String toString() {
+        return this == CURRENT ? "CURRENT" : "SAVINGS";
+    }
 }

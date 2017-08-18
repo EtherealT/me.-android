@@ -4,6 +4,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.nectarmicrosystems.me.android.config.ConfigValues;
+
 /**
  * Created by Tobi Adeyinka on 2017. 08. 18..
  */
