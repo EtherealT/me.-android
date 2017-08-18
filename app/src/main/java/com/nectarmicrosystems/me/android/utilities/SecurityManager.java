@@ -26,24 +26,27 @@ public class SecurityManager {
         hashedPassword = preferencesManager.getPasswordHash();
     }
 
-    public void setPassword(String password){
+    public SecurityManager setPassword(String password){
         /*
          * TODO look for an encryption method
          */
         String hashedPassword = password;
         preferencesManager.setPasswordHash(hashedPassword);
+        return this;
     }
 
     public boolean verifyPassword(String password){
         return password.equals(hashedPassword);
     }
 
-    public void enablePasswordProtection(){
+    public SecurityManager enablePasswordProtection(){
         preferencesManager.setPasswordProtected(true);
+        return this;
     }
 
-    public void disablePasswordProtection(){
+    public SecurityManager disablePasswordProtection(){
         preferencesManager.setPasswordProtected(false);
+        return this;
     }
 
     public boolean checkPasswordProtection(){

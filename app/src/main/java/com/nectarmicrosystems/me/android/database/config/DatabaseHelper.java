@@ -28,7 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ConfigValues.ID + " TEXT PRIMARY KEY NOT NULL, " +
                 ConfigValues.NAME + " TEXT NOT NULL, " +
                 ConfigValues.BALANCE + " TEXT NOT NULL, " +
-                ConfigValues.ACCOUNT_TYPE + " TEXT NOT NULL) "
+                ConfigValues.ACCOUNT_TYPE + " TEXT NOT NULL)"
         );
 
         db.execSQL("CREATE TABLE " + ConfigValues.FINANCE_ENTRIES_TABLE + " (" +
@@ -36,8 +36,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ConfigValues.DATE + " TEXT NOT NULL, " +
                 ConfigValues.AMOUNT + " TEXT NOT NULL, " +
                 ConfigValues.DESCRIPTION + " TEXT, " +
-                "FOREIGN KEY (" + ConfigValues.ACCOUNT_ID + ") REFERENCES " + ConfigValues.FINANCE_ACCOUNTS_TABLE + " (" + ConfigValues.ID + ") TEXT NOT NULL, " +
-                ConfigValues.ENTRY_TYPE + " TEXT NOT NULL) "
+                ConfigValues.ACCOUNT_ID + " TEXT NOT NULL, " +
+                ConfigValues.ENTRY_TYPE + " TEXT NOT NULL, " +
+                "FOREIGN KEY (" + ConfigValues.ACCOUNT_ID + ") REFERENCES " + ConfigValues.FINANCE_ACCOUNTS_TABLE + " (" + ConfigValues.ID + "))"
         );
     }
 

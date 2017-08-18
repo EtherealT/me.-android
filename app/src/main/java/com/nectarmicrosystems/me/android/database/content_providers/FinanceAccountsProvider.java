@@ -1,15 +1,18 @@
 package com.nectarmicrosystems.me.android.database.content_providers;
 
-import android.content.UriMatcher;
 import android.net.Uri;
 import android.database.Cursor;
+import android.content.UriMatcher;
 import android.content.ContentValues;
 import android.content.ContentProvider;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.nectarmicrosystems.me.android.config.ConfigValues;
 import com.nectarmicrosystems.me.android.database.tables.FinanceAccountsTable;
+
+import java.util.UUID;
 
 /**
  * Created by Tobi Adeyinka on 2017. 08. 18..
@@ -25,7 +28,7 @@ public class FinanceAccountsProvider extends ContentProvider {
     private static final int FINANCE_ACCOUNT = 100;
     private static final int FINANCE_ACCOUNT_ID = 101;
 
-    private static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + FINANCE_ACCOUNTS_BASE_PATH);
+    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + FINANCE_ACCOUNTS_BASE_PATH);
 
     private static final UriMatcher sURIMatcher = new UriMatcher(UriMatcher.NO_MATCH);
     static {
@@ -36,7 +39,7 @@ public class FinanceAccountsProvider extends ContentProvider {
     @Override
     public boolean onCreate() {
         accountsTable = new FinanceAccountsTable(getContext());
-        return false;
+        return true;
     }
 
     @Nullable
@@ -54,7 +57,8 @@ public class FinanceAccountsProvider extends ContentProvider {
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
-        return null;
+        accountsTable.insert(values);
+        return generateUri(UUID.fromString(values.getAsString(ConfigValues.ID)));
     }
 
     @Override
@@ -65,5 +69,9 @@ public class FinanceAccountsProvider extends ContentProvider {
     @Override
     public int update(@NonNull Uri uri, @Nullable ContentValues values, @Nullable String selection, @Nullable String[] selectionArgs) {
         return 0;
+    }
+
+    public static Uri generateUri(UUID id){
+        return Uri.parse(CONTENT_URI.toString() + "/" + id.toString());
     }
 }
