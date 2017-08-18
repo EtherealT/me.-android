@@ -1,4 +1,4 @@
-package com.nectarmicrosystems.me.android.database;
+package com.nectarmicrosystems.me.android.database.config;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -8,10 +8,10 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by Tobi Adeyinka on 2017. 08. 18..
  */
 
-class DatabaseHelper extends SQLiteOpenHelper {
+public class DatabaseHelper extends SQLiteOpenHelper {
 
     DatabaseHelper(Context context){
-        super(context, DatabaseConfig.DATABASE, null, DatabaseConfig.DATABASE_VERSION);
+        super(context, ConfigValues.DATABASE, null, ConfigValues.DATABASE_VERSION);
     }
 
     @Override

@@ -1,10 +1,10 @@
-package com.nectarmicrosystems.me.android.database;
+package com.nectarmicrosystems.me.android.database.config;
 
 /**
  * Created by Tobi Adeyinka on 2017. 08. 18..
  */
 
-abstract class DatabaseConfig {
+public abstract class ConfigValues {
 
     static final String DATABASE = "com.nectarmicrosystems.me";
     static final int DATABASE_VERSION = 1;
