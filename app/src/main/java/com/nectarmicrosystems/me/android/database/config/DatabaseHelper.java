@@ -12,7 +12,7 @@ import com.nectarmicrosystems.me.android.config.ConfigValues;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    DatabaseHelper(Context context){
+    public DatabaseHelper(Context context){
         super(context, ConfigValues.DATABASE, null, ConfigValues.DATABASE_VERSION);
     }
 

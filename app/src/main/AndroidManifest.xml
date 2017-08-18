@@ -32,6 +32,14 @@
             android:name=".android.activities.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
+
+        <provider
+            android:name=".android.database.content_providers.FinanceAccountsProvider"
+            android:authorities="com.nectarmicrosystems.me.android.database.content_providers.financeaccountsprovier"
+            android:enabled="true"
+            android:multiprocess="true"
+            android:exported="false"/>
+
     </application>
 
 </manifest>
