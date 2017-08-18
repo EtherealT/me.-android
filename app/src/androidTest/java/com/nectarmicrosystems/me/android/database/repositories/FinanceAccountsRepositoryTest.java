@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 
 import com.nectarmicrosystems.me.android.TestUtils;
+import com.nectarmicrosystems.me.android.modules.finance_manger.entities.Currency;
 import com.nectarmicrosystems.me.android.modules.finance_manger.entities.FinanceAccount;
 import com.nectarmicrosystems.me.android.modules.finance_manger.entities.FinanceAccountType;
 
@@ -36,7 +37,7 @@ public class FinanceAccountsRepositoryTest {
     }
 
     private FinanceAccount createFinanceAccountForTest(){
-        return new FinanceAccount("Test Account", new BigDecimal(2000), FinanceAccountType.SAVINGS);
+        return new FinanceAccount("Test Account", new BigDecimal(2000), FinanceAccountType.SAVINGS, Currency.USD);
     }
 
 }

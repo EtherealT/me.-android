@@ -28,6 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ConfigValues.ID + " TEXT PRIMARY KEY NOT NULL, " +
                 ConfigValues.NAME + " TEXT NOT NULL, " +
                 ConfigValues.BALANCE + " TEXT NOT NULL, " +
+                ConfigValues.CURRENCY + " TEXT NOT NULL, " +
                 ConfigValues.ACCOUNT_TYPE + " TEXT NOT NULL)"
         );
 

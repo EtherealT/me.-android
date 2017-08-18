@@ -17,9 +17,12 @@ public abstract class ConfigValues {
     public static final String DATE = "date";
     public static final String AMOUNT = "amount";
     public static final String BALANCE = "balance";
+    public static final String CURRENCY = "currency";
     public static final String DESCRIPTION = "description";
     public static final String ACCOUNT_TYPE = "account_type";
     public static final String ENTRY_TYPE = "entry_type";
     public static final String ACCOUNT_ID = "account_id";
+
+    public static final String[] FINANCE_ACCOUNTS_TABLE_COLUMNS = {};
 
 }

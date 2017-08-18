@@ -1,8 +1,11 @@
 package com.nectarmicrosystems.me.android.database.tables;
 
+import android.database.Cursor;
 import android.content.Context;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
+
+import android.support.annotation.Nullable;
 
 import com.nectarmicrosystems.me.android.config.ConfigValues;
 import com.nectarmicrosystems.me.android.database.config.DatabaseHelper;
@@ -29,5 +32,10 @@ public class FinanceAccountsTable {
 
     public void update(ContentValues values, String selection, String[] selectionArgs) {
 
+    }
+
+    @Nullable
+    public Cursor query(@Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
+        return null;
     }
 }

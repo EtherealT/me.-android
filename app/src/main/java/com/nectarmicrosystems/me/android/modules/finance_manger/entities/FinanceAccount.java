@@ -21,19 +21,22 @@ public class FinanceAccount {
     private String name;
     private BigDecimal balance;
     private FinanceAccountType accountType;
+    private Currency currency;
 
-    public FinanceAccount(String name, BigDecimal balance, FinanceAccountType accountType) {
+    public FinanceAccount(String name, BigDecimal balance, FinanceAccountType accountType, Currency currency) {
         id = UUID.randomUUID();
         this.name = name;
         this.accountType = accountType;
         this.balance = balance;
+        this.currency = currency;
     }
 
-    private FinanceAccount(UUID id, String name, BigDecimal balance, FinanceAccountType accountType){
+    private FinanceAccount(UUID id, String name, BigDecimal balance, FinanceAccountType accountType, Currency currency){
         this.id = id;
         this.name = name;
         this.accountType = accountType;
         this.balance = balance;
+        this.currency = currency;
     }
 
     public static FinanceAccount fromCursor(Cursor cursor){
@@ -41,13 +44,15 @@ public class FinanceAccount {
         int nameColumnIndex = cursor.getColumnIndex(ConfigValues.NAME);
         int balanceColumnIndex = cursor.getColumnIndex(ConfigValues.BALANCE);
         int accountTypeColumnIndex = cursor.getColumnIndex(ConfigValues.ACCOUNT_TYPE);
+        int currencyColumnIndex = cursor.getColumnIndex(ConfigValues.CURRENCY);
 
         UUID id = UUID.fromString(cursor.getString(idColumnIndex));
         String name = cursor.getString(nameColumnIndex);
         BigDecimal balance = new BigDecimal(cursor.getDouble(balanceColumnIndex));
         FinanceAccountType accountType = FinanceAccountType.valueOf(cursor.getString(accountTypeColumnIndex));
+        Currency currency = Currency.valueOf(cursor.getString(currencyColumnIndex));
 
-        return new FinanceAccount(id, name, balance, accountType);
+        return new FinanceAccount(id, name, balance, accountType, currency);
     }
 
     /*
@@ -58,6 +63,7 @@ public class FinanceAccount {
         cv.put(ConfigValues.ID, id.toString());
         cv.put(ConfigValues.NAME, name);
         cv.put(ConfigValues.BALANCE, balance.toString());
+        cv.put(ConfigValues.CURRENCY, currency.toString());
         cv.put(ConfigValues.ACCOUNT_TYPE, accountType.toString());
         return cv;
     }
@@ -97,13 +103,14 @@ public class FinanceAccount {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof FinanceAccount)) return false;
 
-        FinanceAccount that = (FinanceAccount) o;
-        return id.equals(that.id)
-                && name.equals(that.name)
-                && balance.equals(that.balance)
-                && accountType == that.accountType;
+        FinanceAccount account = (FinanceAccount) o;
+        return id.equals(account.id)
+                && name.equals(account.name)
+                && balance.equals(account.balance)
+                && accountType == account.accountType
+                && currency == account.currency;
     }
 
     @Override
@@ -112,7 +119,7 @@ public class FinanceAccount {
         result = 31 * result + name.hashCode();
         result = 31 * result + balance.hashCode();
         result = 31 * result + accountType.hashCode();
+        result = 31 * result + currency.hashCode();
         return result;
     }
-
 }
