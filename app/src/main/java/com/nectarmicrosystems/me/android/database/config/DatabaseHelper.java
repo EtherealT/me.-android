@@ -18,7 +18,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
+        db.execSQL("CREATE TABLE " + ConfigValues.FINANCE_ACCOUNTS_TABLE + " (" +
+                ConfigValues.ID + " TEXT PRIMARY KEY NOT NULL, " +
+                ConfigValues.NAME + " TEXT NOT NULL, " +
+                ConfigValues.BALANCE + " TEXT NOT NULL, " +
+                ConfigValues.ACCOUNT_TYPE + " TEXT NOT NULL) "
+        );
     }
 
     @Override

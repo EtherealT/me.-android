@@ -18,5 +18,6 @@ public abstract class ConfigValues {
     public static final String NAME = "name";
     public static final String BALANCE = "balance";
     public static final String ACCOUNT_TYPE = "account_type";
+    public static final String ACCOUNT_ID = "account_id";
 
 }

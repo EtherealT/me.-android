@@ -23,7 +23,7 @@ public class FinanceAccount {
     private FinanceAccountType accountType;
 
     public FinanceAccount(String name, BigDecimal balance, FinanceAccountType accountType) {
-        this.id = UUID.randomUUID();
+        id = UUID.randomUUID();
         this.name = name;
         this.accountType = accountType;
         this.balance = balance;
