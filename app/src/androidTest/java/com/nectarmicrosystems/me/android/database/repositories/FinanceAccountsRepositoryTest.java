@@ -7,9 +7,7 @@ import com.nectarmicrosystems.me.android.TestUtils;
 import com.nectarmicrosystems.me.android.modules.finance_manger.entities.FinanceAccount;
 import com.nectarmicrosystems.me.android.modules.finance_manger.entities.FinanceAccountType;
 
-import org.junit.Before;
-import org.junit.Test;
-
+import org.junit.*;
 import java.math.BigDecimal;
 import java.util.logging.Logger;
 
@@ -21,13 +19,12 @@ public class FinanceAccountsRepositoryTest {
 
     private static final Logger LOGGER = Logger.getLogger(FinanceAccountsRepositoryTest.class.getCanonicalName());
 
-    private Context context;
     private FinanceAccountsRepository financeAccountsRepository;
 
     @Before
     public void setup() {
         TestUtils.setupLogger(LOGGER);
-        context = InstrumentationRegistry.getTargetContext();
+        Context context = InstrumentationRegistry.getTargetContext();
         financeAccountsRepository = new FinanceAccountsRepository(context);
     }
 
@@ -35,6 +32,7 @@ public class FinanceAccountsRepositoryTest {
     public void testInsertNewFinanceAccount(){
         FinanceAccount account = createFinanceAccountForTest();
         financeAccountsRepository.insert(account);
+        // TODO verify insertion
     }
 
     private FinanceAccount createFinanceAccountForTest(){
