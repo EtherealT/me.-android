@@ -1,4 +1,4 @@
-package com.nectarmicrosystems.me.android.networking.open_weather_map;
+package com.nectarmicrosystems.me.android.networking.apis.open_weather_map;
 
 import android.support.test.runner.AndroidJUnit4;
 

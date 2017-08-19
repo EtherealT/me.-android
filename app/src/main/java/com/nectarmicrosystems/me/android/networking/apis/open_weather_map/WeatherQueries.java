@@ -1,4 +1,4 @@
-package com.nectarmicrosystems.me.android.networking.open_weather_map;
+package com.nectarmicrosystems.me.android.networking.apis.open_weather_map;
 
 import com.nectarmicrosystems.me.android.config.Sensitive;
 
@@ -11,7 +11,7 @@ import static com.nectarmicrosystems.me.android.networking.NetworkUtils.query;
  * Created by tobi on 2017. 06. 07..
  */
 
-class WeatherQueries {
+public abstract class WeatherQueries {
 
     private static final String BASE_URL = "http://api.openweathermap.org/data/2.5/";
     private static final String API_KEY = Sensitive.OPEN_WEATHER_MAP_API_KEY;

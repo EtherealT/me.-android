@@ -8,7 +8,7 @@
 
     <test name="networking">
         <classes>
-            <class name="com.nectarmicrosystems.me.android.networking.open_weather_map.WeatherQueriesTest" />
+            <class name="com.nectarmicrosystems.me.android.networking.apis.open_weather_map.WeatherQueriesTest" />
         </classes>
     </test>
 
