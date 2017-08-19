@@ -3,14 +3,12 @@ package com.nectarmicrosystems.me.android.database.repositories;
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 
-import com.nectarmicrosystems.me.android.TestUtils;
 import com.nectarmicrosystems.me.android.modules.finance_manger.entities.Currency;
 import com.nectarmicrosystems.me.android.modules.finance_manger.entities.FinanceAccount;
 import com.nectarmicrosystems.me.android.modules.finance_manger.entities.FinanceAccountType;
 
 import org.junit.*;
 import java.math.BigDecimal;
-import java.util.logging.Logger;
 
 import static org.junit.Assert.assertEquals;
 
@@ -20,13 +18,10 @@ import static org.junit.Assert.assertEquals;
 
 public class FinanceAccountsRepositoryTest {
 
-    private static final Logger LOGGER = Logger.getLogger(FinanceAccountsRepositoryTest.class.getCanonicalName());
-
     private FinanceAccountsRepository financeAccountsRepository;
 
     @Before
     public void setup() {
-        TestUtils.setupLogger(LOGGER);
         Context context = InstrumentationRegistry.getTargetContext();
         financeAccountsRepository = new FinanceAccountsRepository(context);
         emptyDatabase();
