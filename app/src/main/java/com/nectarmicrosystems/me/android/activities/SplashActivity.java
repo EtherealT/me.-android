@@ -12,9 +12,10 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
 import com.nectarmicrosystems.me.android.utilities.SecurityManager;
+import com.nectarmicrosystems.me.android.utilities.PreferencesManager;
+import com.nectarmicrosystems.me.android.modules.quotes.QuotesQueryTask;
 
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -24,6 +25,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestPermissions();
+        if (isNewDay()) getNewData();
     }
 
     /*
@@ -80,6 +82,28 @@ public class SplashActivity extends AppCompatActivity {
         Class nextActivity = securityManager.checkPasswordProtection() ? PasswordActivity.class : MainActivity.class;
         startActivity(new Intent(this, nextActivity));
         finish();
+    }
+
+    private boolean isNewDay() {
+        PreferencesManager preferencesManager = new PreferencesManager(this);
+        Calendar last = preferencesManager.getLastRunDate();
+        Calendar now = Calendar.getInstance();
+
+        boolean sameDay = last.get(Calendar.YEAR) == now.get(Calendar.YEAR) &&
+                last.get(Calendar.DAY_OF_YEAR) == now.get(Calendar.DAY_OF_YEAR);
+
+        Log.i(SplashActivity.class.getCanonicalName(), "is new day: " + !sameDay);
+        preferencesManager.setLastRunDate(System.currentTimeMillis());
+
+        return !sameDay;
+    }
+
+    private void getNewData(){
+        getTodaysQuote();
+    }
+
+    private void getTodaysQuote(){
+        new QuotesQueryTask(this).execute();
     }
 
 }

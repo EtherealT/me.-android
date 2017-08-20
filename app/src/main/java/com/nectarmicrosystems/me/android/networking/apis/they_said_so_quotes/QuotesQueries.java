@@ -1,7 +1,9 @@
 package com.nectarmicrosystems.me.android.networking.apis.they_said_so_quotes;
 
-import java.io.IOException;
+import android.util.Log;
+
 import java.net.URL;
+import java.io.IOException;
 
 import static com.nectarmicrosystems.me.android.networking.NetworkUtils.query;
 
@@ -16,7 +18,9 @@ public abstract class QuotesQueries {
     public static String getTodaysQuote(){
         try {
             URL url = new URL(BASE_URL + "qod.json");
-            return query(url);
+            String response = query(url);
+            Log.i(QuotesQueries.class.getCanonicalName(), response);
+            return response;
         } catch (IOException e) {
             e.printStackTrace();
         }
