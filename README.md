@@ -1,10 +1,18 @@
+##Me.
+
 ```master```   
 [![Build Status](https://travis-ci.org/EtherealT/me.-android.svg?branch=master)](https://travis-ci.org/EtherealT/me.-android)
 
 ```dev```   
 [![Build Status](https://travis-ci.org/EtherealT/me.-android.svg?branch=dev)](https://travis-ci.org/EtherealT/me.-android)
 
-# License
+###Features
+* inspirational Quotes
+* Journal -- planned
+* Finance Manager -- planned
+* Password Manager -- planned
+
+###License
 
 ```
    Copyright 2017 Oluwatobi Adeyinka
