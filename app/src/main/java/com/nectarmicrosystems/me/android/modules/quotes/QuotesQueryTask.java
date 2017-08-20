@@ -25,7 +25,7 @@ public class QuotesQueryTask extends AsyncTask<Void, Void, Quote> {
     @Override
     protected Quote doInBackground(Void... params) {
         try {
-            JSONObject responseObject = new JSONObject(QuotesQueries.getTodaysQuote());
+            JSONObject responseObject = new JSONObject(QuotesQueries.getTodaysInspiringQuote());
             return Quote.fromTheySaidSoQOD(responseObject);
         } catch (JSONException e) {
             e.printStackTrace();

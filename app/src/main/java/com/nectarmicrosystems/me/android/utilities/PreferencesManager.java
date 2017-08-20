@@ -21,6 +21,7 @@ public class PreferencesManager {
     private static final String TODAYS_QUOTE_AUTHOR_KEY = ".todaysquoteauthor";
     private static final String TODAYS_QUOTE_IMG_KEY = ".todaysquoteimg";
     private static final String LAST_RUN_DATE_PREFERENCE_KEY = ".lastrundate";
+    private static final String FIRST_RUN_PREFERENCE_KEY = ".firstrun";
 
     private Context context;
     private SharedPreferences preferences;
@@ -79,6 +80,15 @@ public class PreferencesManager {
          * hence the single space
          */
         return preferences.getString(PASSWORD_HASH_KEY, " ");
+    }
+
+    /*
+     * check if this the apps first run
+     */
+    public boolean isFirstRun(){
+        boolean firstRun = preferences.getBoolean(FIRST_RUN_PREFERENCE_KEY, true);
+        preferences.edit().putBoolean(FIRST_RUN_PREFERENCE_KEY, false).apply();
+        return firstRun;
     }
 
     public void setLastRunDate(long timeMillis){

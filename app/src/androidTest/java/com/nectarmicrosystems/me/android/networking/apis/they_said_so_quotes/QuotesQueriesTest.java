@@ -17,7 +17,7 @@ public class QuotesQueriesTest {
 
     @Test
     public void testGetTodaysQuote(){
-        String response = QuotesQueries.getTodaysQuote();
+        String response = QuotesQueries.getTodaysInspiringQuote();
         Assert.assertFalse(response.isEmpty());
         Log.i(WeatherQueriesTest.class.getCanonicalName(), "todays quote response: " + response);
     }

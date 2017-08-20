@@ -15,9 +15,9 @@ public abstract class QuotesQueries {
 
     private static final String BASE_URL = " http://quotes.rest/";
 
-    public static String getTodaysQuote(){
+    public static String getTodaysInspiringQuote(){
         try {
-            URL url = new URL(BASE_URL + "qod.json");
+            URL url = new URL(BASE_URL + "qod.json?category=inspire");
             String response = query(url);
             Log.i(QuotesQueries.class.getCanonicalName(), response);
             return response;

@@ -26,7 +26,7 @@ public class CustomViewPager extends ViewPager {
     private void setScroller() {
         try {
             Class<?> viewpager = ViewPager.class;
-            Field scroller = viewpager.getDeclaredField("scroller");
+            Field scroller = viewpager.getDeclaredField("mScroller");
             scroller.setAccessible(true);
             scroller.set(this, new CustomScroller(getContext()));
         } catch (Exception e) {

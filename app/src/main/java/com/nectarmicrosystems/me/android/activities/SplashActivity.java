@@ -20,12 +20,14 @@ import java.util.*;
 public class SplashActivity extends AppCompatActivity {
 
     private static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
+    private PreferencesManager preferencesManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        preferencesManager = new PreferencesManager(this);
         requestPermissions();
-        if (isNewDay()) getNewData();
+        if (isFirstRun() || isNewDay()) getNewData();
     }
 
     /*
@@ -85,7 +87,6 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private boolean isNewDay() {
-        PreferencesManager preferencesManager = new PreferencesManager(this);
         Calendar last = preferencesManager.getLastRunDate();
         Calendar now = Calendar.getInstance();
 
@@ -96,6 +97,10 @@ public class SplashActivity extends AppCompatActivity {
         preferencesManager.setLastRunDate(System.currentTimeMillis());
 
         return !sameDay;
+    }
+
+    private boolean isFirstRun(){
+        return preferencesManager.isFirstRun();
     }
 
     private void getNewData(){
