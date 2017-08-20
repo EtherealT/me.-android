@@ -1,4 +1,4 @@
-# license
+# License
 
 ```
    Copyright 2017 Oluwatobi Adeyinka
