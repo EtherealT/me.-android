@@ -1,5 +1,8 @@
-```master```[![Build Status](https://travis-ci.org/EtherealT/me.-android.svg?branch=master)](https://travis-ci.org/EtherealT/me.-android)
+```master```   
+[![Build Status](https://travis-ci.org/EtherealT/me.-android.svg?branch=master)](https://travis-ci.org/EtherealT/me.-android)
 
+```dev```   
+[![Build Status](https://travis-ci.org/EtherealT/me.-android.svg?branch=dev)](https://travis-ci.org/EtherealT/me.-android)
 
 # License
 
