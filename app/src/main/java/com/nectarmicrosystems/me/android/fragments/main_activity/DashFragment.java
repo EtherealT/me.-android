@@ -26,9 +26,11 @@ public class DashFragment extends Fragment {
 
         ImageView quoteBackground = (ImageView) rootView.findViewById(R.id.quote_background);
         TextView quoteTextView = (TextView) rootView.findViewById(R.id.todays_quote);
+        TextView authorTextView = (TextView) rootView.findViewById(R.id.todays_quote_author);
 
         PreferencesManager preferencesManager = new PreferencesManager(getContext());
         quoteTextView.setText(preferencesManager.getTodaysQuote());
+        authorTextView.setText(preferencesManager.getTodaysQuoteAuthor());
 
         if (!preferencesManager.getTodaysQuoteImage().isEmpty())
             Picasso.with(getActivity()).load(preferencesManager.getTodaysQuoteImage()).into(quoteBackground);
