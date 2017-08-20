@@ -4,8 +4,6 @@ import android.content.Context;
 import android.support.test.runner.AndroidJUnit4;
 import android.support.test.InstrumentationRegistry;
 
-import com.nectarmicrosystems.me.android.TestUtils;
-
 import org.junit.*;
 import org.junit.runner.RunWith;
 
@@ -20,8 +18,6 @@ import static org.junit.Assert.*;
 @RunWith(AndroidJUnit4.class)
 public class SecurityManagerTest {
 
-    private static final Logger LOGGER = Logger.getLogger(SecurityManagerTest.class.getCanonicalName());
-
     private Context context;
     private SecurityManager securityManager;
     private PreferencesManager preferencesManager;
@@ -30,7 +26,6 @@ public class SecurityManagerTest {
 
     @Before
     public void setup() {
-        TestUtils.setupLogger(LOGGER);
         context = InstrumentationRegistry.getTargetContext();
         securityManager = new SecurityManager(context);
         preferencesManager = new PreferencesManager(context);

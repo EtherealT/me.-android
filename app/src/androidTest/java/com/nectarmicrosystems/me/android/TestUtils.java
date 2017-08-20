@@ -8,13 +8,4 @@ import java.util.logging.*;
 
 public abstract class TestUtils {
 
-    public static void setupLogger(Logger logger){
-        Handler consoleHandler = new ConsoleHandler();
-        consoleHandler.setLevel(Level.ALL);
-        consoleHandler.setFormatter(new SimpleFormatter());
-        logger.addHandler(consoleHandler);
-        logger.setLevel(Level.ALL);
-        logger.setUseParentHandlers(false);
-    }
-
 }
