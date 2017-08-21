@@ -9,6 +9,7 @@
 ### Features
 * Inspirational Quotes
 * Journal -- planned
+* Task Manager -- planned
 * Finance Manager -- planned
 * Password Manager -- planned
 

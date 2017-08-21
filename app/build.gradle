@@ -10,6 +10,9 @@ android {
         versionCode 1
         versionName "0.0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        each { type ->
+            type.buildConfigField 'String', 'OPEN_WEATHER_MAP_API_KEY', project.hasProperty('OPEN_WEATHER_MAP_API_KEY') ? OPEN_WEATHER_MAP_API_KEY : System.getenv('OPEN_WEATHER_MAP_API_KEY')
+        }
     }
     buildTypes {
         release {
