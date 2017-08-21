@@ -32,7 +32,7 @@
                 android:id="@+id/todays_quote"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#777"
+                android:textColor="@android:color/white"
                 android:fontFamily="monospace"
                 android:layout_gravity="center"
                 android:textAlignment="center"
