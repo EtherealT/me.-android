@@ -126,6 +126,7 @@ public class SplashActivity extends AppCompatActivity {
 
     private void getTodaysQuote(){
         new QuotesQueryTask(this).execute();
+        // TODO fix non displaying quote and image on first run
     }
 
 }
