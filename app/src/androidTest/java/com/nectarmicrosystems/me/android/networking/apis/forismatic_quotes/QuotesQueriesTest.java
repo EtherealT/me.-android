@@ -15,7 +15,7 @@
  *
  */
 
-package com.nectarmicrosystems.me.android.networking.apis.they_said_so_quotes;
+package com.nectarmicrosystems.me.android.networking.apis.forismatic_quotes;
 
 import android.util.Log;
 import android.support.test.runner.AndroidJUnit4;

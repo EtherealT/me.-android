@@ -15,7 +15,7 @@
  *
  */
 
-package com.nectarmicrosystems.me.android.networking.apis.they_said_so_quotes;
+package com.nectarmicrosystems.me.android.networking.apis.forismatic_quotes;
 
 import android.util.Log;
 
@@ -30,12 +30,9 @@ import static com.nectarmicrosystems.me.android.networking.NetworkUtils.query;
 
 public abstract class QuotesQueries {
 
-    private static final String BASE_URL = " http://quotes.rest/";
-
     public static String getTodaysInspiringQuote(){
         try {
-            // TODO work around 10 requests per hour
-            URL url = new URL(BASE_URL + "qod.json?category=inspire");
+            URL url = new URL("https://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en");
             String response = query(url);
             Log.i(QuotesQueries.class.getCanonicalName(), response);
             return response;

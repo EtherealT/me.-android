@@ -20,7 +20,7 @@ package com.nectarmicrosystems.me.android;
 import com.nectarmicrosystems.me.android.utilities.SecurityManagerTest;
 import com.nectarmicrosystems.me.android.networking.apis.open_weather_map.WeatherQueriesTest;
 import com.nectarmicrosystems.me.android.database.repositories.FinanceAccountsRepositoryTest;
-import com.nectarmicrosystems.me.android.networking.apis.they_said_so_quotes.QuotesQueriesTest;
+import com.nectarmicrosystems.me.android.networking.apis.forismatic_quotes.QuotesQueriesTest;
 
 import org.junit.runners.Suite;
 import org.junit.runner.RunWith;

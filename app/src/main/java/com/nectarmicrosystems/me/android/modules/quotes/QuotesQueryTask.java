@@ -22,7 +22,7 @@ import android.content.Context;
 
 import com.nectarmicrosystems.me.android.utilities.PreferencesManager;
 import com.nectarmicrosystems.me.android.modules.quotes.entities.Quote;
-import com.nectarmicrosystems.me.android.networking.apis.they_said_so_quotes.QuotesQueries;
+import com.nectarmicrosystems.me.android.networking.apis.forismatic_quotes.QuotesQueries;
 
 import org.json.JSONObject;
 import org.json.JSONException;

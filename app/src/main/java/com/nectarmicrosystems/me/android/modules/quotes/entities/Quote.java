@@ -36,16 +36,12 @@ public class Quote {
         this.imageUrl = imageUrl;
     }
 
-    public static Quote fromTheySaidSoQOD(JSONObject object){
+    public static Quote fromTheySaidSoQOD(JSONObject jsonQuote){
         try {
-            JSONObject jsonQuote = object.getJSONObject("contents")
-                    .getJSONArray("quotes")
-                    .getJSONObject(0);
-
-            String quote = jsonQuote.getString("quote");
-            String author = jsonQuote.getString("author");
+            String quote = jsonQuote.getString("quoteText");
+            String author = jsonQuote.getString("quoteAuthor");
             String imageUrl = "https://unsplash.it/1000/?random&blur";
-
+            
             return new Quote(quote, author, imageUrl);
         } catch (JSONException e) {
             e.printStackTrace();

@@ -45,7 +45,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         preferencesManager = new PreferencesManager(this);
         requestPermissions();
-        if (isFirstRun() || isNewDay()) getNewData();
+        getNewData();
     }
 
     /*
