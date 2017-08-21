@@ -44,7 +44,7 @@ public class Quote {
 
             String quote = jsonQuote.getString("quote");
             String author = jsonQuote.getString("author");
-            String imageUrl = "https://unsplash.it/1000/?random";
+            String imageUrl = "https://unsplash.it/1000/?random&blur";
 
             return new Quote(quote, author, imageUrl);
         } catch (JSONException e) {

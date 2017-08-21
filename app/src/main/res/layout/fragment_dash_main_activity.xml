@@ -32,25 +32,24 @@
                 android:id="@+id/todays_quote"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
                 android:fontFamily="monospace"
                 android:layout_gravity="center"
                 android:textAlignment="center"
-                android:textSize="19sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="10dp"
-                tools:text="it is better to light a candle than to curse the darkness"/>
+                tools:text="it is better to light a candle than to curse the darkness"
+                style="@style/QuoteTextStyle"/>
 
             <TextView
                 android:id="@+id/todays_quote_author"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
                 android:fontFamily="monospace"
                 android:layout_gravity="center"
                 android:textAlignment="center"
                 android:textSize="19sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                style="@style/QuoteTextStyle"/>
 
         </LinearLayout>
 
