@@ -27,6 +27,8 @@ import com.nectarmicrosystems.me.android.networking.apis.forismatic_quotes.Quote
 import org.json.JSONObject;
 import org.json.JSONException;
 
+import java.net.InetAddress;
+
 /**
  * Created by Tobi Adeyinka on 2017. 08. 20..
  */
@@ -42,8 +44,10 @@ public class QuotesQueryTask extends AsyncTask<Void, Void, Quote> {
     @Override
     protected Quote doInBackground(Void... params) {
         try {
-            JSONObject responseObject = new JSONObject(QuotesQueries.getTodaysInspiringQuote());
-            return Quote.fromTheySaidSoQOD(responseObject);
+            if (internetAvailable()){
+                JSONObject responseObject = new JSONObject(QuotesQueries.getTodaysInspiringQuote());
+                return Quote.fromTheySaidSoQOD(responseObject);
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -53,9 +57,21 @@ public class QuotesQueryTask extends AsyncTask<Void, Void, Quote> {
     @Override
     protected void onPostExecute(Quote quote) {
         super.onPostExecute(quote);
-        PreferencesManager preferencesManager = new PreferencesManager(context);
-        preferencesManager.setTodaysQuote(quote.getQuote());
-        preferencesManager.setTodaysQuoteAuthor(quote.getAuthor());
-        preferencesManager.setTodaysQuoteImage(quote.getImageUrl());
+        if (quote != null){
+            PreferencesManager preferencesManager = new PreferencesManager(context);
+            preferencesManager.setTodaysQuote(quote.getQuote());
+            preferencesManager.setTodaysQuoteAuthor(quote.getAuthor());
+            preferencesManager.setTodaysQuoteImage(quote.getImageUrl());
+        }
+    }
+
+    private boolean internetAvailable() {
+        try {
+            InetAddress ipAddr = InetAddress.getByName("google.com");
+            return !ipAddr.equals("");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }
