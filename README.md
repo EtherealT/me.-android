@@ -7,7 +7,7 @@
 [![Build Status](https://travis-ci.org/EtherealT/me.-android.svg?branch=dev)](https://travis-ci.org/EtherealT/me.-android)
 
 ### Features
-* inspirational Quotes
+* Inspirational Quotes
 * Journal -- planned
 * Finance Manager -- planned
 * Password Manager -- planned
