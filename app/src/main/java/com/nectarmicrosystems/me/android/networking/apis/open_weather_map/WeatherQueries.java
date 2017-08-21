@@ -17,8 +17,6 @@
 
 package com.nectarmicrosystems.me.android.networking.apis.open_weather_map;
 
-import com.nectarmicrosystems.me.android.config.Sensitive;
-
 import java.net.URL;
 import java.io.IOException;
 
@@ -31,7 +29,7 @@ import static com.nectarmicrosystems.me.android.networking.NetworkUtils.query;
 public abstract class WeatherQueries {
 
     private static final String BASE_URL = "http://api.openweathermap.org/data/2.5/";
-    private static final String API_KEY = Sensitive.OPEN_WEATHER_MAP_API_KEY;
+    private static final String API_KEY = System.getenv("OPEN_WEATHER_MAP_API_KEY");
 
     /*
      * get the current weather for a city using

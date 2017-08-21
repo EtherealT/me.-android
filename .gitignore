@@ -10,3 +10,4 @@
 /.idea
 *.apk
 /app/src/main/java/com/nectarmicrosystems/me/android/config/Sensitive.java
+/.env
