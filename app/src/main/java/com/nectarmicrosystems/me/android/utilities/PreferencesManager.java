@@ -40,6 +40,20 @@ public class PreferencesManager {
     private static final String LAST_RUN_DATE_PREFERENCE_KEY = ".lastrundate";
     private static final String FIRST_RUN_PREFERENCE_KEY = ".firstrun";
 
+    private static final String[] DEFAULT_QUOTES = {
+            "You are not competing with other people. You don't need to catch anyone. Just mind your own business and work on yourself",
+            "You know, everybody dies. My parents died. Your father died. Everybody dies. I'm going to die too, so will you. The thing is to have a life before we die. Having a life can be a real adventure",
+            "It is better to light a candle than to curse the darkness",
+            "I think everybody should get rich and famous and do everything they ever dreamed of so they can see that it's not the answer"
+    };
+
+    private static final String[] DEFAULT_AUTHORS = {
+            "From the web",
+            "From the web",
+            "Eleanor Roosevelt",
+            "Jim Carey"
+    };
+
     private Context context;
     private SharedPreferences preferences;
 
@@ -53,8 +67,8 @@ public class PreferencesManager {
         preferences.edit().putString(TODAYS_QUOTE_KEY, todaysQuote).apply();
     }
 
-    public String getTodaysQuote(){
-        return preferences.getString(TODAYS_QUOTE_KEY, "");
+    public String getTodaysQuote(int defaultSelector){
+        return preferences.getString(TODAYS_QUOTE_KEY, DEFAULT_QUOTES[defaultSelector]);
     }
 
     public void setTodaysQuoteAuthor(String todaysQuoteAuthor){
@@ -62,8 +76,8 @@ public class PreferencesManager {
         preferences.edit().putString(TODAYS_QUOTE_AUTHOR_KEY, todaysQuoteAuthor).apply();
     }
 
-    public String getTodaysQuoteAuthor(){
-        return preferences.getString(TODAYS_QUOTE_AUTHOR_KEY, "");
+    public String getTodaysQuoteAuthor(int defaultSelector){
+        return preferences.getString(TODAYS_QUOTE_AUTHOR_KEY, DEFAULT_AUTHORS[defaultSelector]);
     }
 
     public void setTodaysQuoteImage(String todaysQuoteImage){

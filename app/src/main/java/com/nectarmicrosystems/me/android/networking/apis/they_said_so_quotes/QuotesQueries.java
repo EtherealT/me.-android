@@ -34,6 +34,7 @@ public abstract class QuotesQueries {
 
     public static String getTodaysInspiringQuote(){
         try {
+            // TODO work around 10 requests per hour
             URL url = new URL(BASE_URL + "qod.json?category=inspire");
             String response = query(url);
             Log.i(QuotesQueries.class.getCanonicalName(), response);

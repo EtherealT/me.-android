@@ -39,6 +39,7 @@ public class SplashActivity extends AppCompatActivity {
     private static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
     private PreferencesManager preferencesManager;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -126,7 +127,6 @@ public class SplashActivity extends AppCompatActivity {
 
     private void getTodaysQuote(){
         new QuotesQueryTask(this).execute();
-        // TODO fix non displaying quote and image on first run
     }
 
 }

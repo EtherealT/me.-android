@@ -29,6 +29,8 @@ import com.nectarmicrosystems.me.android.utilities.PreferencesManager;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.Random;
+
 /**
  * Created by tobi on 2017. 06. 06..
  */
@@ -44,9 +46,10 @@ public class DashFragment extends Fragment {
         TextView quoteTextView = (TextView) rootView.findViewById(R.id.todays_quote);
         TextView authorTextView = (TextView) rootView.findViewById(R.id.todays_quote_author);
 
+        int randomQuoteIndex = new Random().nextInt(4);
         PreferencesManager preferencesManager = new PreferencesManager(getContext());
-        quoteTextView.setText(preferencesManager.getTodaysQuote());
-        authorTextView.setText(preferencesManager.getTodaysQuoteAuthor());
+        quoteTextView.setText(preferencesManager.getTodaysQuote(randomQuoteIndex));
+        authorTextView.setText(preferencesManager.getTodaysQuoteAuthor(randomQuoteIndex));
 
         if (!preferencesManager.getTodaysQuoteImage().isEmpty())
             Picasso.with(getActivity()).load(preferencesManager.getTodaysQuoteImage()).into(quoteBackground);
