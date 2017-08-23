@@ -17,6 +17,7 @@
 
 package com.nectarmicrosystems.me.android;
 
+import com.nectarmicrosystems.me.android.ui_tests.MainActivityUITest;
 import com.nectarmicrosystems.me.android.utilities.SecurityManagerTest;
 import com.nectarmicrosystems.me.android.networking.apis.open_weather_map.WeatherQueriesTest;
 import com.nectarmicrosystems.me.android.database.repositories.FinanceAccountsRepositoryTest;
@@ -32,6 +33,7 @@ import org.junit.runner.RunWith;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         QuotesQueriesTest.class,
+        MainActivityUITest.class,
         WeatherQueriesTest.class,
         SecurityManagerTest.class,
         FinanceAccountsRepositoryTest.class
