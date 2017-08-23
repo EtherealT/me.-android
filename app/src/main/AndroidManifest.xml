@@ -30,6 +30,7 @@
         <activity
             android:name=".android.activities.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".android.activities.SettingsActivity"></activity>
 
         <provider
             android:name=".android.database.content_providers.FinanceAccountsProvider"
@@ -38,7 +39,6 @@
             android:exported="false"
             android:multiprocess="true" />
 
-        <activity android:name=".android.activities.SettingsActivity"></activity>
     </application>
 
 </manifest>
