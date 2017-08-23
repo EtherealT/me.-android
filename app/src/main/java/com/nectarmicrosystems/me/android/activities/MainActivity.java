@@ -19,8 +19,11 @@ package com.nectarmicrosystems.me.android.activities;
 
 import android.util.Log;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
+import android.content.Intent;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.app.AppCompatActivity;
 
@@ -43,6 +46,15 @@ public class MainActivity extends AppCompatActivity {
         w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         setContentView(R.layout.activity_main);
         setupViewComponents();
+
+        LinearLayout settingsButton = (LinearLayout)findViewById(R.id.settings_button);
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setupViewComponents(){
