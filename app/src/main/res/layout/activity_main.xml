@@ -112,38 +112,80 @@
                         android:textColor="@color/grey"/>
                 </LinearLayout>
 
-                <TextView
+                <LinearLayout
                     android:id="@+id/finances_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:textAlignment="textStart"
-                    android:fontFamily="monospace"
-                    android:textSize="18sp"
-                    android:text="@string/finances"
-                    android:textColor="@color/grey"/>
+                    android:orientation="horizontal"
+                    android:weightSum="6">
 
-                <TextView
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@mipmap/ic_finances"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:paddingTop="15dp"
+                        android:textAlignment="textStart"
+                        android:fontFamily="monospace"
+                        android:textSize="18sp"
+                        android:text="@string/finances"
+                        android:textColor="@color/grey"/>
+                </LinearLayout>
+
+                <LinearLayout
                     android:id="@+id/passwords_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:textAlignment="textStart"
-                    android:fontFamily="monospace"
-                    android:textSize="18sp"
-                    android:text="@string/passwords"
-                    android:textColor="@color/grey"/>
+                    android:orientation="horizontal"
+                    android:weightSum="6">
 
-                <TextView
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@mipmap/ic_passwords"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:paddingTop="15dp"
+                        android:textAlignment="textStart"
+                        android:fontFamily="monospace"
+                        android:textSize="18sp"
+                        android:text="@string/passwords"
+                        android:textColor="@color/grey"/>
+                </LinearLayout>
+
+                <LinearLayout
                     android:id="@+id/settings_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:textAlignment="textStart"
-                    android:fontFamily="monospace"
-                    android:textSize="18sp"
-                    android:text="@string/settings"
-                    android:textColor="@color/grey"/>
+                    android:orientation="horizontal"
+                    android:weightSum="6">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@mipmap/ic_settings"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:paddingTop="15dp"
+                        android:textAlignment="textStart"
+                        android:fontFamily="monospace"
+                        android:textSize="18sp"
+                        android:text="@string/settings"
+                        android:textColor="@color/grey"/>
+                </LinearLayout>
 
             </LinearLayout>
         </ScrollView>
