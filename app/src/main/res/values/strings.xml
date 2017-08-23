@@ -3,4 +3,7 @@
     <string name="unlock">Unlock</string>
     <string name="password" translatable="true">Password</string>
     <string name="settings" translatable="true">Settings</string>
+    <string name="passwords" translatable="true">Passwords</string>
+    <string name="finances" translatable="true">Finances</string>
+    <string name="tasks" translatable="true">Tasks</string>
 </resources>
