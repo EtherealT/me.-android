@@ -73,14 +73,17 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:src="@mipmap/ic_tasks"/>
+                        android:src="@mipmap/ic_tasks"
+                        android:layout_gravity="center"/>
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="5"
-                        android:paddingTop="15dp"
-                        android:textAlignment="textStart"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:paddingRight="10dp"
+                        android:layout_gravity="center_vertical|start"
                         android:fontFamily="monospace"
                         android:textSize="18sp"
                         android:text="@string/tasks"
@@ -98,14 +101,17 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:src="@mipmap/ic_journal"/>
+                        android:src="@mipmap/ic_journal"
+                        android:layout_gravity="center"/>
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="5"
-                        android:paddingTop="15dp"
-                        android:textAlignment="textStart"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:paddingRight="10dp"
+                        android:layout_gravity="center_vertical|start"
                         android:fontFamily="monospace"
                         android:textSize="18sp"
                         android:text="@string/journal"
@@ -123,14 +129,17 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:src="@mipmap/ic_finances"/>
+                        android:src="@mipmap/ic_finances"
+                        android:layout_gravity="center"/>
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="5"
-                        android:paddingTop="15dp"
-                        android:textAlignment="textStart"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:paddingRight="10dp"
+                        android:layout_gravity="center_vertical|start"
                         android:fontFamily="monospace"
                         android:textSize="18sp"
                         android:text="@string/finances"
@@ -148,14 +157,17 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:src="@mipmap/ic_passwords"/>
+                        android:src="@mipmap/ic_passwords"
+                        android:layout_gravity="center"/>
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="5"
-                        android:paddingTop="15dp"
-                        android:textAlignment="textStart"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:paddingRight="10dp"
+                        android:layout_gravity="center_vertical|start"
                         android:fontFamily="monospace"
                         android:textSize="18sp"
                         android:text="@string/passwords"
@@ -173,14 +185,17 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:src="@mipmap/ic_settings"/>
+                        android:src="@mipmap/ic_settings"
+                        android:layout_gravity="center"/>
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="5"
-                        android:paddingTop="15dp"
-                        android:textAlignment="textStart"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:paddingRight="10dp"
+                        android:layout_gravity="center_vertical|start"
                         android:fontFamily="monospace"
                         android:textSize="18sp"
                         android:text="@string/settings"
