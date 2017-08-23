@@ -6,4 +6,5 @@
     <string name="passwords" translatable="true">Passwords</string>
     <string name="finances" translatable="true">Finances</string>
     <string name="tasks" translatable="true">Tasks</string>
+    <string name="journal" translatable="true">Journal</string>
 </resources>
