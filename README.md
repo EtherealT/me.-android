@@ -4,9 +4,8 @@
 <a href="https://travis-ci.org/EtherealT/me.-android"><img src="https://travis-ci.org/EtherealT/me.-android.svg?branch=master" alt="Build Status"></a>
 <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License"></a>
 </p>
-
-##
-
+    
+    
 ## Features
 * Inspirational Quotes
 * Journal -- planned
