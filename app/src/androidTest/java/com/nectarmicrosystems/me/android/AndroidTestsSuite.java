@@ -19,6 +19,7 @@ package com.nectarmicrosystems.me.android;
 
 import com.nectarmicrosystems.me.android.ui_tests.MainActivityUITest;
 import com.nectarmicrosystems.me.android.ui_tests.PasswordActivityUITest;
+import com.nectarmicrosystems.me.android.ui_tests.SplashActivityUITest;
 
 import com.nectarmicrosystems.me.android.utilities.SecurityManagerTest;
 
@@ -40,6 +41,7 @@ import org.junit.runner.RunWith;
         WeatherQueriesTest.class,
         MainActivityUITest.class,
         SecurityManagerTest.class,
+        SplashActivityUITest.class,
         PasswordActivityUITest.class,
         FinanceAccountsRepositoryTest.class
 })
