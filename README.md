@@ -14,7 +14,6 @@
 * Finance Manager -- planned
 * Password Manager -- planned
    
-   
 <br />
    
 ### License
