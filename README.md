@@ -22,7 +22,7 @@ but mostly for fun. I have plans for a web interface as well, but that's a littl
     
     
 ## Installation / Running
-As of now, there is no release version as I'm still in the early stages of development but if you are interested in building the app:
+As of now, there is no functional release version as I'm still in the early stages of development but if you are interested in building the app:
 * You should have the [Android SDK](https://developer.android.com/studio/index.html) installed
 * You should also have [Gradle](https://gradle.org) installed
 * To build: ```gradle assembleDebug``` or ```gradle installDebug``` to build and install immediately on an emulator or connected device
