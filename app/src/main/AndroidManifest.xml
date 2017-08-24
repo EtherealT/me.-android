@@ -47,7 +47,7 @@
         <activity
             android:name=".android.activities.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".android.activities.SettingsActivity"></activity>
+        <activity android:name=".android.activities.SettingsActivity" />
 
         <provider
             android:name=".android.database.content_providers.FinanceAccountsProvider"
