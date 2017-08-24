@@ -17,34 +17,24 @@
 
 package com.nectarmicrosystems.me.android.fragments.main_activity;
 
+import android.view.*;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.annotation.Nullable;
+
+import com.nectarmicrosystems.me.R;
 
 /**
- * Created by tobi on 2017. 06. 06..
+ * Created by Tobi Adeyinka on 2017. 08. 24..
  */
 
-public class MainActivityPagerAdapter extends FragmentStatePagerAdapter {
+public class TasksFragment extends Fragment {
 
-    private static final int NUM_FRAGMENTS = 2;
-    private static final int DASH_FRAGMENT = 0;
-    private static final int TASKS_FRAGMENT = 1;
-
-    public MainActivityPagerAdapter(FragmentManager fragmentManager) {
-        super(fragmentManager);
-    }
-
+    @Nullable
     @Override
-    public Fragment getItem(int position) {
-        if (position == DASH_FRAGMENT) return new DashFragment();
-        if (position == TASKS_FRAGMENT) return new TasksFragment();
-        return null;
-    }
-
-    @Override
-    public int getCount() {
-        return NUM_FRAGMENTS;
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_tasks_main_activity, container, false);
+        return rootView;
     }
 
 }
