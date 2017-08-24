@@ -78,6 +78,18 @@ public class MainActivityUITest {
     }
 
     /*
+     * verify that the passwords fragment is displayed when the finances button is clicked
+     */
+    @Test
+    public void testPasswordsButtonClick(){
+        Intents.init();
+        openDrawer();
+        clickButton(R.id.passwords_button);
+        onView(withId(R.id.passwords_fragment_root)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
+        Intents.release();
+    }
+
+    /*
      * verify that the settings activity is launched when the settings button is clicked
      */
     @Test
@@ -108,6 +120,17 @@ public class MainActivityUITest {
         Intents.init();
         swipeViewPagerLeft(2);
         onView(withId(R.id.finances_fragment_root)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
+        Intents.release();
+    }
+
+    /*
+     * verify that the finance fragment is displayed after a triple swipe
+     */
+    @Test
+    public void testTripleLeftSwipe(){
+        Intents.init();
+        swipeViewPagerLeft(3);
+        onView(withId(R.id.passwords_fragment_root)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
         Intents.release();
     }
 

@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
     private void setupButtonListeners(){
         setupTasksButtonListener();
         setupFinancesButtonLister();
+        setupPasswordsButtonListener();
         setupSettingsButtonListener();
     }
 
@@ -76,20 +77,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void setupSettingsButtonListener(){
-        LinearLayout settingsButton = (LinearLayout)findViewById(R.id.settings_button);
-        settingsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                /*
-                 * launch the settings activity
-                 */
-                Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
-
     private void setupFinancesButtonLister(){
         LinearLayout financesButton = (LinearLayout)findViewById(R.id.finances_button);
         financesButton.setOnClickListener(new View.OnClickListener() {
@@ -100,6 +87,34 @@ public class MainActivity extends AppCompatActivity {
                  */
                 viewPager.setCurrentItem(MainActivityPagerAdapter.FINANCES_FRAGMENT);
                 drawer.closeDrawer(Gravity.LEFT);
+            }
+        });
+    }
+
+    private void setupPasswordsButtonListener(){
+        LinearLayout passwordsButton = (LinearLayout)findViewById(R.id.passwords_button);
+        passwordsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*
+                 * set the passwords fragment as the active fragment then close the drawer
+                 */
+                viewPager.setCurrentItem(MainActivityPagerAdapter.PASSWORDS_FRAGMENT);
+                drawer.closeDrawer(Gravity.LEFT);
+            }
+        });
+    }
+
+    private void setupSettingsButtonListener(){
+        LinearLayout settingsButton = (LinearLayout)findViewById(R.id.settings_button);
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*
+                 * launch the settings activity
+                 */
+                Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+                startActivity(intent);
             }
         });
     }

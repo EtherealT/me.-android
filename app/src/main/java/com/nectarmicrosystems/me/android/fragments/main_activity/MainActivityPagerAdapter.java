@@ -27,10 +27,11 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 public class MainActivityPagerAdapter extends FragmentStatePagerAdapter {
 
-    private static final int NUM_FRAGMENTS = 3;
+    private static final int NUM_FRAGMENTS = 4;
     public static final int DASH_FRAGMENT = 0;
     public static final int TASKS_FRAGMENT = 1;
     public static final int FINANCES_FRAGMENT = 2;
+    public static final int PASSWORDS_FRAGMENT = 3;
 
     public MainActivityPagerAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
@@ -41,6 +42,7 @@ public class MainActivityPagerAdapter extends FragmentStatePagerAdapter {
         if (position == DASH_FRAGMENT) return new DashFragment();
         if (position == TASKS_FRAGMENT) return new TasksFragment();
         if (position == FINANCES_FRAGMENT) return new FinancesFragment();
+        if (position == PASSWORDS_FRAGMENT) return new PasswordsFragment();
         return null;
     }
 
