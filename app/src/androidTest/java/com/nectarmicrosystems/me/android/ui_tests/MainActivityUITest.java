@@ -26,6 +26,8 @@ import com.nectarmicrosystems.me.R;
 import com.nectarmicrosystems.me.android.activities.MainActivity;
 import com.nectarmicrosystems.me.android.activities.SettingsActivity;
 
+import android.support.test.espresso.matcher.ViewMatchers;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,9 +37,11 @@ import static android.support.test.espresso.intent.Intents.intended;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.contrib.DrawerActions.open;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.action.ViewActions.swipeLeft;
 import static android.support.test.espresso.contrib.DrawerMatchers.isClosed;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent;
+import static android.support.test.espresso.matcher.ViewMatchers.withEffectiveVisibility;
 
 /**
  * Created by Tobi Adeyinka on 2017. 08. 24..
@@ -49,24 +53,50 @@ public class MainActivityUITest {
     @Rule
     public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(MainActivity.class);
 
+    @Test
+    public void testTasksButtonClick(){
+        Intents.init();
+        openDrawer();
+        clickButton(R.id.tasks_button);
+        onView(withId(R.id.tasks_fragment_root)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
+        Intents.release();
+    }
+
     /*
      * verify that the settings activity is launched when the settings button is clicked
      */
     @Test
     public void testSettingsButtonClick(){
         Intents.init();
+        openDrawer();
+        clickButton(R.id.settings_button);
+        intended(hasComponent(SettingsActivity.class.getName()));
+        Intents.release();
+    }
 
-        // open drawer
+    /*
+     * verify that the tasks fragment is displayed on a single swipe
+     */
+    @Test
+    public void testSingleLeftSwipe(){
+        Intents.init();
+        performLeftSwipe(1);
+        onView(withId(R.id.tasks_fragment_root)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
+        Intents.release();
+    }
+
+    private void openDrawer(){
         onView(withId(R.id.main_activity_drawer))
                 .check(matches(isClosed(Gravity.LEFT))) // Left Drawer should be closed.
                 .perform(open());
+    }
 
-        // click settings button
-        onView(withId(R.id.settings_button))
-                .perform(click());
+    private void clickButton(int buttonId){
+        onView(withId(buttonId)).perform(click());
+    }
 
-        intended(hasComponent(SettingsActivity.class.getName()));
-        Intents.release();
+    private void performLeftSwipe(int numberOfSwipes){
+        for (int i = 0; i < numberOfSwipes; i++) swipeLeft();
     }
 
 }
