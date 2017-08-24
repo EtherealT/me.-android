@@ -7,7 +7,7 @@
 
 ##
 
-### Features
+## Features
 * Inspirational Quotes
 * Journal -- planned
 * Task Manager -- planned
@@ -15,7 +15,7 @@
 * Password Manager -- planned
     
    
-### License
+## License
 
 ```
    Copyright 2017 Oluwatobi Adeyinka
