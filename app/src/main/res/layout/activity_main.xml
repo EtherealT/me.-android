@@ -92,36 +92,6 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/journal_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="6"
-                    android:clickable="true"
-                    android:background="@drawable/module_button_back">
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:src="@mipmap/ic_journal"
-                        android:layout_gravity="center"/>
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="5"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:paddingRight="10dp"
-                        android:layout_gravity="center_vertical|start"
-                        android:fontFamily="monospace"
-                        android:textSize="18sp"
-                        android:text="@string/journal"
-                        android:textColor="@color/grey"/>
-                </LinearLayout>
-
-                <LinearLayout
                     android:id="@+id/finances_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -178,6 +148,36 @@
                         android:fontFamily="monospace"
                         android:textSize="18sp"
                         android:text="@string/passwords"
+                        android:textColor="@color/grey"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/journal_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="6"
+                    android:clickable="true"
+                    android:background="@drawable/module_button_back">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@mipmap/ic_journal"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:paddingRight="10dp"
+                        android:layout_gravity="center_vertical|start"
+                        android:fontFamily="monospace"
+                        android:textSize="18sp"
+                        android:text="@string/journal"
                         android:textColor="@color/grey"/>
                 </LinearLayout>
 

@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         setupTasksButtonListener();
         setupFinancesButtonLister();
         setupPasswordsButtonListener();
+        setupJournalButtonLister();
         setupSettingsButtonListener();
     }
 
@@ -100,6 +101,20 @@ public class MainActivity extends AppCompatActivity {
                  * set the passwords fragment as the active fragment then close the drawer
                  */
                 viewPager.setCurrentItem(MainActivityPagerAdapter.PASSWORDS_FRAGMENT);
+                drawer.closeDrawer(Gravity.LEFT);
+            }
+        });
+    }
+
+    private void setupJournalButtonLister(){
+        LinearLayout journalButton = (LinearLayout)findViewById(R.id.journal_button);
+        journalButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*
+                 * set the journal fragment as the active fragment then close the drawer
+                 */
+                viewPager.setCurrentItem(MainActivityPagerAdapter.JOURNAL_FRAGMENT);
                 drawer.closeDrawer(Gravity.LEFT);
             }
         });

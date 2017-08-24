@@ -78,7 +78,7 @@ public class MainActivityUITest {
     }
 
     /*
-     * verify that the passwords fragment is displayed when the finances button is clicked
+     * verify that the passwords fragment is displayed when the passwords button is clicked
      */
     @Test
     public void testPasswordsButtonClick(){
@@ -86,6 +86,18 @@ public class MainActivityUITest {
         openDrawer();
         clickButton(R.id.passwords_button);
         onView(withId(R.id.passwords_fragment_root)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
+        Intents.release();
+    }
+
+    /*
+     * verify that the journal fragment is displayed when the journal button is clicked
+     */
+    @Test
+    public void testJournalButtonClick(){
+        Intents.init();
+        openDrawer();
+        clickButton(R.id.journal_button);
+        onView(withId(R.id.journal_fragment_root)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
         Intents.release();
     }
 
@@ -113,10 +125,10 @@ public class MainActivityUITest {
     }
 
     /*
-     * verify that the finance fragment is displayed after a double swipe
+     * verify that the finance fragment is displayed after two swipes
      */
     @Test
-    public void testDoubleLeftSwipe(){
+    public void testTwoLeftSwipes(){
         Intents.init();
         swipeViewPagerLeft(2);
         onView(withId(R.id.finances_fragment_root)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
@@ -124,13 +136,24 @@ public class MainActivityUITest {
     }
 
     /*
-     * verify that the finance fragment is displayed after a triple swipe
+     * verify that the finance fragment is displayed after three swipes
      */
     @Test
-    public void testTripleLeftSwipe(){
+    public void testThreeLeftSwipes(){
         Intents.init();
         swipeViewPagerLeft(3);
         onView(withId(R.id.passwords_fragment_root)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
+        Intents.release();
+    }
+
+    /*
+     * verify that the journal fragment is displayed after four swipes
+     */
+    @Test
+    public void testFourLeftSwipes(){
+        Intents.init();
+        swipeViewPagerLeft(4);
+        onView(withId(R.id.journal_fragment_root)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
         Intents.release();
     }
 
