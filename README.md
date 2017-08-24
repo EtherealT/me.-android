@@ -1,9 +1,7 @@
-<p align="center"><img src="http://imgur.com/a/sdOsO"></p>
+![Me. logo](http://imgur.com/a/sdOsO "Me.")
 
-<p align="center">
 [![Build Status](https://travis-ci.org/EtherealT/me.-android.svg?branch=master)](https://travis-ci.org/EtherealT/me.-android) 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-</p>
 
 ### Features
 * Inspirational Quotes
