@@ -1,9 +1,11 @@
-<p align="center"><img src="http://i.imgur.com/HeMXsVR.png" width="250" height="250"></p>
+<p align="center"><img src="http://i.imgur.com/HeMXsVR.png" width="150" height="150"></p>
 
 <p align="center">
 <a href="https://travis-ci.org/EtherealT/me.-android"><img src="https://travis-ci.org/EtherealT/me.-android.svg?branch=master" alt="Build Status"></a>
 <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License"></a>
 </p>
+
+##
 
 ### Features
 * Inspirational Quotes
