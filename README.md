@@ -1,10 +1,10 @@
 <p align="center"><img src="http://i.imgur.com/HeMXsVR.png" width="120" height="120"></p>
 
 <p align="center">
-<a href="https://travis-ci.org/EtherealT/me.-android"><img src="https://travis-ci.org/EtherealT/me.-android.svg?branch=master&maxAge=3600" alt="Build Status"></a>
-<a href='https://coveralls.io/github/EtherealT/me.-android?branch=master'><img src='https://coveralls.io/repos/github/EtherealT/me.-android/badge.svg?branch=master&maxAge=3600' alt='Coverage Status' /></a>
-<a href="https://github.com/EtherealT/me.-android/releases"><img src="https://badge.fury.io/gh/etherealt%2Fme.-android.svg?maxAge=3600" alt="GitHub version"></a>
-<a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?maxAge=3600" alt="License"></a>
+<a href="https://travis-ci.org/EtherealT/me.-android"><img src="https://travis-ci.org/EtherealT/me.-android.svg?branch=master&maxAge=1" alt="Build Status"></a>
+<a href='https://coveralls.io/github/EtherealT/me.-android?branch=master'><img src='https://coveralls.io/repos/github/EtherealT/me.-android/badge.svg?branch=master&maxAge=1' alt='Coverage Status' /></a>
+<a href="https://github.com/EtherealT/me.-android/releases"><img src="https://badge.fury.io/gh/etherealt%2Fme.-android.svg?maxAge=1" alt="GitHub version"></a>
+<a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?maxAge=1" alt="License"></a>
 </p>
     
    
