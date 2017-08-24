@@ -1,4 +1,4 @@
-<p align="center"><img src="http://i.imgur.com/HeMXsVR.png"></p>
+<p align="center"><img src="http://i.imgur.com/HeMXsVR.png" style="width:200;height:200;"></p>
 
 <p align="center">
 <a href="https://travis-ci.org/EtherealT/me.-android"><img src="https://travis-ci.org/EtherealT/me.-android.svg?branch=master" alt="Build Status"></a>
