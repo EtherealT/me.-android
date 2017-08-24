@@ -17,14 +17,14 @@
 
 package com.nectarmicrosystems.me.android.activities;
 
+import android.view.*;
 import android.util.Log;
 import android.os.Bundle;
-import android.view.View;
-import android.view.Window;
 import android.content.Intent;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.support.v4.view.PagerAdapter;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 
 import com.nectarmicrosystems.me.R;
@@ -47,10 +47,27 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setupViewComponents();
 
+        final DrawerLayout drawer = (DrawerLayout)findViewById(R.id.main_activity_drawer);
+
+        LinearLayout tasksButton = (LinearLayout)findViewById(R.id.tasks_button);
+        tasksButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*
+                 * set the tasks fragment as the active fragment then close the drawer
+                 */
+                viewPager.setCurrentItem(MainActivityPagerAdapter.TASKS_FRAGMENT);
+                drawer.closeDrawer(Gravity.LEFT);
+            }
+        });
+
         LinearLayout settingsButton = (LinearLayout)findViewById(R.id.settings_button);
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*
+                 * launch the settings activity
+                 */
                 Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
                 startActivity(intent);
             }

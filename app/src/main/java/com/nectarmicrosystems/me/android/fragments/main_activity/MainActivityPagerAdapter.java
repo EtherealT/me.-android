@@ -28,8 +28,8 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 public class MainActivityPagerAdapter extends FragmentStatePagerAdapter {
 
     private static final int NUM_FRAGMENTS = 2;
-    private static final int DASH_FRAGMENT = 0;
-    private static final int TASKS_FRAGMENT = 1;
+    public static final int DASH_FRAGMENT = 0;
+    public static final int TASKS_FRAGMENT = 1;
 
     public MainActivityPagerAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
