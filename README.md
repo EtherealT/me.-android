@@ -5,6 +5,11 @@
 <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License"></a>
 </p>
     
+   
+## About
+Me. is an self management app I'm building partly for my personal use and the learning experience 
+but mostly for fun. I have plans for a web interface as well, but that's a little down the line.
+    
     
 ## Features
 * Inspirational Quotes
