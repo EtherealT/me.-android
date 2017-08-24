@@ -53,12 +53,27 @@ public class MainActivityUITest {
     @Rule
     public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(MainActivity.class);
 
+    /*
+     * verify that the tasks fragment is displayed when the tasks button is clicked
+     */
     @Test
     public void testTasksButtonClick(){
         Intents.init();
         openDrawer();
         clickButton(R.id.tasks_button);
         onView(withId(R.id.tasks_fragment_root)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
+        Intents.release();
+    }
+
+    /*
+     * verify that the finances fragment is displayed when the finances button is clicked
+     */
+    @Test
+    public void testFinancesButtonClick(){
+        Intents.init();
+        openDrawer();
+        clickButton(R.id.finances_button);
+        onView(withId(R.id.finances_fragment_root)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
         Intents.release();
     }
 
@@ -75,13 +90,24 @@ public class MainActivityUITest {
     }
 
     /*
-     * verify that the tasks fragment is displayed on a single swipe
+     * verify that the tasks fragment is displayed after a single swipe
      */
     @Test
     public void testSingleLeftSwipe(){
         Intents.init();
-        performLeftSwipe(1);
+        swipeViewPagerLeft(1);
         onView(withId(R.id.tasks_fragment_root)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
+        Intents.release();
+    }
+
+    /*
+     * verify that the finance fragment is displayed after a double swipe
+     */
+    @Test
+    public void testDoubleLeftSwipe(){
+        Intents.init();
+        swipeViewPagerLeft(2);
+        onView(withId(R.id.finances_fragment_root)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
         Intents.release();
     }
 
@@ -95,8 +121,9 @@ public class MainActivityUITest {
         onView(withId(buttonId)).perform(click());
     }
 
-    private void performLeftSwipe(int numberOfSwipes){
-        for (int i = 0; i < numberOfSwipes; i++) swipeLeft();
+    private void swipeViewPagerLeft(int numberOfSwipes){
+        for (int i = 0; i < numberOfSwipes; i++)
+            onView(withId(R.id.main_activity_view_pager)).perform(swipeLeft());
     }
 
 }

@@ -27,9 +27,10 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 public class MainActivityPagerAdapter extends FragmentStatePagerAdapter {
 
-    private static final int NUM_FRAGMENTS = 2;
+    private static final int NUM_FRAGMENTS = 3;
     public static final int DASH_FRAGMENT = 0;
     public static final int TASKS_FRAGMENT = 1;
+    public static final int FINANCES_FRAGMENT = 2;
 
     public MainActivityPagerAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
@@ -39,6 +40,7 @@ public class MainActivityPagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         if (position == DASH_FRAGMENT) return new DashFragment();
         if (position == TASKS_FRAGMENT) return new TasksFragment();
+        if (position == FINANCES_FRAGMENT) return new FinancesFragment();
         return null;
     }
 

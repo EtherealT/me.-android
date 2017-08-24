@@ -18,7 +18,6 @@
 package com.nectarmicrosystems.me.android.activities;
 
 import android.view.*;
-import android.util.Log;
 import android.os.Bundle;
 import android.content.Intent;
 import android.view.WindowManager;
@@ -37,6 +36,7 @@ import com.nectarmicrosystems.me.android.fragments.main_activity.MainActivityPag
 
 public class MainActivity extends AppCompatActivity {
 
+    private DrawerLayout drawer;
     private CustomViewPager viewPager;
 
     @Override
@@ -45,10 +45,24 @@ public class MainActivity extends AppCompatActivity {
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         setContentView(R.layout.activity_main);
-        setupViewComponents();
+        setupViewPager();
+        drawer = (DrawerLayout)findViewById(R.id.main_activity_drawer);
+        setupButtonListeners();
+    }
 
-        final DrawerLayout drawer = (DrawerLayout)findViewById(R.id.main_activity_drawer);
+    private void setupViewPager(){
+        viewPager = (CustomViewPager)findViewById(R.id.main_activity_view_pager);
+        PagerAdapter pagerAdapter = new MainActivityPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(pagerAdapter);
+    }
 
+    private void setupButtonListeners(){
+        setupTasksButtonListener();
+        setupFinancesButtonLister();
+        setupSettingsButtonListener();
+    }
+
+    private void setupTasksButtonListener(){
         LinearLayout tasksButton = (LinearLayout)findViewById(R.id.tasks_button);
         tasksButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +74,9 @@ public class MainActivity extends AppCompatActivity {
                 drawer.closeDrawer(Gravity.LEFT);
             }
         });
+    }
 
+    private void setupSettingsButtonListener(){
         LinearLayout settingsButton = (LinearLayout)findViewById(R.id.settings_button);
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,11 +90,18 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void setupViewComponents(){
-        Log.i(getClass().getCanonicalName(), "setting up fragments");
-        viewPager = (CustomViewPager)findViewById(R.id.view_pager);
-        PagerAdapter pagerAdapter = new MainActivityPagerAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(pagerAdapter);
+    private void setupFinancesButtonLister(){
+        LinearLayout financesButton = (LinearLayout)findViewById(R.id.finances_button);
+        financesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*
+                 * set the finances fragment as the active fragment then close the drawer
+                 */
+                viewPager.setCurrentItem(MainActivityPagerAdapter.FINANCES_FRAGMENT);
+                drawer.closeDrawer(Gravity.LEFT);
+            }
+        });
     }
 
 }
