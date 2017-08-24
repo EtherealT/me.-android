@@ -7,7 +7,7 @@
     
    
 ## About
-Me. is an self management app I'm building partly for my personal use and the learning experience 
+Me. is a self management app I'm building partly for my personal use and the learning experience, 
 but mostly for fun. I have plans for a web interface as well, but that's a little down the line.
     
     
@@ -17,6 +17,14 @@ but mostly for fun. I have plans for a web interface as well, but that's a littl
 * Task Manager -- planned
 * Finance Manager -- planned
 * Password Manager -- planned
+    
+    
+## Installation / Running
+As of now, there is no release version as I'm still in the early stages of development but if you are interested in building the app:
+* You should have the [Android SDK](https://developer.android.com/studio/index.html) installed
+* You should also have [Gradle](https://gradle.org) installed
+* To build: ```gradle assembleDebug``` or ```gradle installDebug``` to build and install immediately on an emulator or connected device
+* To run tests: ```gradle connectedAndroidTest``` 
     
    
 ## License
