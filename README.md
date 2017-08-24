@@ -1,4 +1,4 @@
-![Me. logo](http://i.imgur.com/HeMXsVR.png =250x250 "Me.")
+![Me. logo](http://i.imgur.com/HeMXsVR.png "Me.") <!-- .element height="50%" width="50%" -->
 
 [![Build Status](https://travis-ci.org/EtherealT/me.-android.svg?branch=master)](https://travis-ci.org/EtherealT/me.-android) 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
