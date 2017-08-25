@@ -28,20 +28,20 @@ import com.nectarmicrosystems.me.android.config.ConfigValues;
 import com.nectarmicrosystems.me.android.database.config.DatabaseHelper;
 
 /**
- * Created by Tobi Adeyinka on 2017. 08. 18..
+ * Created by Tobi Adeyinka on 2017. 08. 25..
  */
 
-public class FinanceAccountsTable {
+public class SitePasswordsTable {
 
     private SQLiteDatabase database;
 
-    public FinanceAccountsTable(Context context) {
+    public SitePasswordsTable(Context context) {
         DatabaseHelper databaseHelper = new DatabaseHelper(context);
         database = databaseHelper.getWritableDatabase();
     }
 
     public void insert(ContentValues cv){
-        database.insert(ConfigValues.FINANCE_ACCOUNTS_TABLE, null, cv);
+        database.insert(ConfigValues.SITE_PASSWORDS_TABLE, null, cv);
     }
 
     public void update(ContentValues values, String selection, String[] selectionArgs) {
@@ -51,8 +51,8 @@ public class FinanceAccountsTable {
     @Nullable
     public Cursor query(@Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
         return database.query(
-                ConfigValues.FINANCE_ACCOUNTS_TABLE,
-                ConfigValues.FINANCE_ACCOUNTS_TABLE_COLUMNS,
+                ConfigValues.SITE_PASSWORDS_TABLE,
+                ConfigValues.SITE_PASSWORDS_TABLE_COLUMNS,
                 selection,
                 selectionArgs,
                 null,
@@ -63,9 +63,10 @@ public class FinanceAccountsTable {
 
     public void delete(@Nullable String selection, @Nullable String[] selectionArgs){
         database.delete(
-                ConfigValues.FINANCE_ACCOUNTS_TABLE,
+                ConfigValues.SITE_PASSWORDS_TABLE,
                 selection,
                 selectionArgs
         );
     }
+
 }

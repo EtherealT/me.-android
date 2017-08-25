@@ -12,7 +12,7 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *  
+ *
  */
 
 package com.nectarmicrosystems.me.android.database.repositories;
@@ -21,38 +21,34 @@ import android.content.Context;
 import android.support.test.runner.AndroidJUnit4;
 import android.support.test.InstrumentationRegistry;
 
-import com.nectarmicrosystems.me.android.modules.finance_manger.entities.Currency;
-import com.nectarmicrosystems.me.android.modules.finance_manger.entities.FinanceAccount;
-import com.nectarmicrosystems.me.android.modules.finance_manger.entities.FinanceAccountType;
+import com.nectarmicrosystems.me.android.modules.password_manager.entities.SitePassword;
 
 import org.junit.*;
 import org.junit.runner.RunWith;
 
-import java.math.BigDecimal;
-
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by Tobi Adeyinka on 2017. 08. 18..
+ * Created by Tobi Adeyinka on 2017. 08. 25..
  */
 
 @RunWith(AndroidJUnit4.class)
-public class FinanceAccountsRepositoryTest {
+public class SitePasswordsRepositoryTest {
 
-    private FinanceAccountsRepository financeAccountsRepository;
+    private SitePasswordsRepository sitePasswordsRepository;
 
     @Before
     public void setup() {
         Context context = InstrumentationRegistry.getTargetContext();
-        financeAccountsRepository = new FinanceAccountsRepository(context);
+        sitePasswordsRepository = new SitePasswordsRepository(context);
         emptyDatabase();
     }
 
     @Test
-    public void testInsertNewFinanceAccount(){
-        FinanceAccount account = createFinanceAccountForTest();
-        financeAccountsRepository.insert(account);
-        assertEquals(financeAccountsRepository.getAll().size(), 1);
+    public void testInsertNewSitePassword(){
+        SitePassword sitePassword = createSitePasswordForTest();
+        sitePasswordsRepository.insert(sitePassword);
+        assertEquals(sitePasswordsRepository.getAll().size(), 1);
     }
 
     /*
@@ -60,11 +56,11 @@ public class FinanceAccountsRepositoryTest {
      */
     @After
     public void emptyDatabase(){
-        financeAccountsRepository.deleteAll();
+        sitePasswordsRepository.deleteAll();
     }
 
-    private FinanceAccount createFinanceAccountForTest(){
-        return new FinanceAccount("Test Account", new BigDecimal(2000), FinanceAccountType.SAVINGS, Currency.USD);
+    private SitePassword createSitePasswordForTest(){
+        return new SitePassword("yahoo", "password");
     }
 
 }

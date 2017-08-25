@@ -18,27 +18,49 @@
 package com.nectarmicrosystems.me.android.database.content_providers;
 
 import android.net.Uri;
+import android.content.*;
 import android.database.Cursor;
-import android.content.ContentValues;
-import android.content.ContentProvider;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+
+import com.nectarmicrosystems.me.android.config.ConfigValues;
+import com.nectarmicrosystems.me.android.database.tables.FinanceEntriesTable;
+
+import java.util.UUID;
 
 /**
  * Created by Tobi Adeyinka on 2017. 08. 18..
  */
 
 public class FinanceEntriesProvider extends ContentProvider {
+
+    private FinanceEntriesTable entriesTable;
+
+    private static final String AUTHORITY = "com.nectarmicrosystems.me.android.database.content_providers.financeentriesprovider";
+    private static final String FINANCE_ENTRIES_BASE_PATH = "financeentries";
+
+    private static final int FINANCE_ENTRY = 100;
+    private static final int FINANCE_ENTRY_ID = 101;
+
+    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + FINANCE_ENTRIES_BASE_PATH);
+
+    private static final UriMatcher sURIMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+    static {
+        sURIMatcher.addURI(AUTHORITY, FINANCE_ENTRIES_BASE_PATH, FINANCE_ENTRY);
+        sURIMatcher.addURI(AUTHORITY, FINANCE_ENTRIES_BASE_PATH + "/*" , FINANCE_ENTRY_ID);
+    }
+
     @Override
     public boolean onCreate() {
-        return false;
+        entriesTable = new FinanceEntriesTable(getContext());
+        return true;
     }
 
     @Nullable
     @Override
     public Cursor query(@NonNull Uri uri, @Nullable String[] projection, @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
-        return null;
+        return entriesTable.query(selection, selectionArgs, sortOrder);
     }
 
     @Nullable
@@ -50,11 +72,13 @@ public class FinanceEntriesProvider extends ContentProvider {
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
-        return null;
+        entriesTable.insert(values);
+        return generateUri(UUID.fromString(values.getAsString(ConfigValues.ID)));
     }
 
     @Override
     public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs) {
+        entriesTable.delete(selection, selectionArgs);
         return 0;
     }
 
@@ -62,4 +86,9 @@ public class FinanceEntriesProvider extends ContentProvider {
     public int update(@NonNull Uri uri, @Nullable ContentValues values, @Nullable String selection, @Nullable String[] selectionArgs) {
         return 0;
     }
+
+    public static Uri generateUri(UUID id) {
+        return Uri.parse(CONTENT_URI.toString() + "/" + id.toString());
+    }
+    
 }

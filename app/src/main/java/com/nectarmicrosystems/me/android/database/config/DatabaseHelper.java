@@ -58,6 +58,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ConfigValues.ENTRY_TYPE + " TEXT NOT NULL, " +
                 "FOREIGN KEY (" + ConfigValues.ACCOUNT_ID + ") REFERENCES " + ConfigValues.FINANCE_ACCOUNTS_TABLE + " (" + ConfigValues.ID + "))"
         );
+
+        db.execSQL("CREATE TABLE " + ConfigValues.SITE_PASSWORDS_TABLE + " (" +
+                ConfigValues.ID + " TEXT PRIMARY KEY NOT NULL, " +
+                ConfigValues.SITE_NAME + " TEXT NOT NULL, " +
+                ConfigValues.PASSWORD + " TEXT NOT NULL, " +
+                ConfigValues.LOGO_RESOURCE_ID + " TEXT NOT NULL)"
+        );
     }
 
     @Override

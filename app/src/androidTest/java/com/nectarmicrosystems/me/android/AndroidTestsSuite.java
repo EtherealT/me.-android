@@ -17,16 +17,12 @@
 
 package com.nectarmicrosystems.me.android;
 
-import com.nectarmicrosystems.me.android.ui_tests.MainActivityUITest;
-import com.nectarmicrosystems.me.android.ui_tests.PasswordActivityUITest;
-import com.nectarmicrosystems.me.android.ui_tests.SplashActivityUITest;
-
+import com.nectarmicrosystems.me.android.ui_tests.*;
+import com.nectarmicrosystems.me.android.database.repositories.*;
 import com.nectarmicrosystems.me.android.utilities.SecurityManagerTest;
 
 import com.nectarmicrosystems.me.android.networking.apis.open_weather_map.WeatherQueriesTest;
 import com.nectarmicrosystems.me.android.networking.apis.forismatic_quotes.QuotesQueriesTest;
-
-import com.nectarmicrosystems.me.android.database.repositories.FinanceAccountsRepositoryTest;
 
 import org.junit.runners.Suite;
 import org.junit.runner.RunWith;
@@ -43,6 +39,8 @@ import org.junit.runner.RunWith;
         SecurityManagerTest.class,
         SplashActivityUITest.class,
         PasswordActivityUITest.class,
+        SitePasswordsRepositoryTest.class,
+        FinanceEntriesRepositoryTest.class,
         FinanceAccountsRepositoryTest.class
 })
 public class AndroidTestsSuite {}

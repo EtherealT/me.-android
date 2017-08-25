@@ -31,7 +31,7 @@ import java.math.BigDecimal;
  * Created by Tobi Adeyinka on 2017. 08. 18..
  */
 
-class FinanceEntry {
+public class FinanceEntry {
 
     /*
      * unique auto generated id of an account
@@ -43,7 +43,7 @@ class FinanceEntry {
     private UUID accountId;
     private FinanceEntryType entryType;
 
-    FinanceEntry(Date date, BigDecimal amount, String description, UUID accountId, FinanceEntryType entryType) {
+    public FinanceEntry(Date date, BigDecimal amount, String description, UUID accountId, FinanceEntryType entryType) {
         id = UUID.randomUUID();
         this.date = date;
         this.amount = amount;

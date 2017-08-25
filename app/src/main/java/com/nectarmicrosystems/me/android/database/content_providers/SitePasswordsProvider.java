@@ -25,42 +25,42 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.nectarmicrosystems.me.android.config.ConfigValues;
-import com.nectarmicrosystems.me.android.database.tables.FinanceAccountsTable;
+import com.nectarmicrosystems.me.android.database.tables.SitePasswordsTable;
 
 import java.util.UUID;
 
 /**
- * Created by Tobi Adeyinka on 2017. 08. 18..
+ * Created by Tobi Adeyinka on 2017. 08. 25..
  */
 
-public class FinanceAccountsProvider extends ContentProvider {
+public class SitePasswordsProvider extends ContentProvider {
 
-    private FinanceAccountsTable accountsTable;
+    private SitePasswordsTable sitePasswordsTable;
 
-    private static final String AUTHORITY = "com.nectarmicrosystems.me.android.database.content_providers.financeaccountsprovider";
-    private static final String FINANCE_ACCOUNTS_BASE_PATH = "financeaccounts";
+    private static final String AUTHORITY = "com.nectarmicrosystems.me.android.database.content_providers.sitepasswordsprovider";
+    private static final String SITE_PASSWORDS_BASE_PATH = "sitepasswords";
 
-    private static final int FINANCE_ACCOUNT = 100;
-    private static final int FINANCE_ACCOUNT_ID = 101;
+    private static final int SITE_PASSWORD = 100;
+    private static final int SITE_PASSWORD_ID = 101;
 
-    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + FINANCE_ACCOUNTS_BASE_PATH);
+    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + SITE_PASSWORDS_BASE_PATH);
 
     private static final UriMatcher sURIMatcher = new UriMatcher(UriMatcher.NO_MATCH);
     static {
-        sURIMatcher.addURI(AUTHORITY, FINANCE_ACCOUNTS_BASE_PATH, FINANCE_ACCOUNT);
-        sURIMatcher.addURI(AUTHORITY, FINANCE_ACCOUNTS_BASE_PATH + "/*" , FINANCE_ACCOUNT_ID);
+        sURIMatcher.addURI(AUTHORITY, SITE_PASSWORDS_BASE_PATH, SITE_PASSWORD);
+        sURIMatcher.addURI(AUTHORITY, SITE_PASSWORDS_BASE_PATH + "/*" , SITE_PASSWORD_ID);
     }
 
     @Override
     public boolean onCreate() {
-        accountsTable = new FinanceAccountsTable(getContext());
+        sitePasswordsTable = new SitePasswordsTable(getContext());
         return true;
     }
 
     @Nullable
     @Override
     public Cursor query(@NonNull Uri uri, @Nullable String[] projection, @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
-        return accountsTable.query(selection, selectionArgs, sortOrder);
+        return sitePasswordsTable.query(selection, selectionArgs, sortOrder);
     }
 
     @Nullable
@@ -72,13 +72,13 @@ public class FinanceAccountsProvider extends ContentProvider {
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
-        accountsTable.insert(values);
+        sitePasswordsTable.insert(values);
         return generateUri(UUID.fromString(values.getAsString(ConfigValues.ID)));
     }
 
     @Override
     public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs) {
-        accountsTable.delete(selection, selectionArgs);
+        sitePasswordsTable.delete(selection, selectionArgs);
         return 0;
     }
 
