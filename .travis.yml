@@ -42,4 +42,4 @@ before_script:
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
 
-script: ./gradlew connectedAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=com.nectarmicrosystems.me.android.AndroidTestsSuite -i coveralls
+script: ./gradlew connectedAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=com.nectarmicrosystems.me.android.AndroidTestsSuite coveralls
