@@ -21,6 +21,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/journal_fragment_root"
-    android:background="@android:color/white">
+    android:background="@color/greyB">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@android:color/white"
+        android:elevation="7dp">
+
+    </LinearLayout>
 
 </LinearLayout>

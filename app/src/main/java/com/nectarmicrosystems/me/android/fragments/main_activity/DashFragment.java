@@ -25,6 +25,7 @@ import android.support.v4.app.Fragment;
 import android.support.annotation.Nullable;
 
 import com.nectarmicrosystems.me.R;
+import com.nectarmicrosystems.me.android.activities.MainActivity;
 import com.nectarmicrosystems.me.android.utilities.PreferencesManager;
 
 import com.squareup.picasso.Picasso;
@@ -55,6 +56,12 @@ public class DashFragment extends Fragment {
             Picasso.with(getActivity()).load(preferencesManager.getTodaysQuoteImage()).into(quoteBackground);
 
         return rootView;
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (this.isVisible()) ((MainActivity)getActivity()).removeWindowLimits();
     }
 
 }

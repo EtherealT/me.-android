@@ -49,6 +49,16 @@ public class MainActivityPagerAdapter extends FragmentStatePagerAdapter {
     }
 
     @Override
+    public CharSequence getPageTitle(int position) {
+        if (position == DASH_FRAGMENT) return "Dashboard";
+        if (position == TASKS_FRAGMENT) return "Tasks";
+        if (position == FINANCES_FRAGMENT) return "Finances";
+        if (position == PASSWORDS_FRAGMENT) return "Passwords";
+        if (position == JOURNAL_FRAGMENT) return "Journal";
+        return null;
+    }
+
+    @Override
     public int getCount() {
         return NUM_FRAGMENTS;
     }

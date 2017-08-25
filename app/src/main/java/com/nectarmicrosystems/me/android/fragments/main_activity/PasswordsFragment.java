@@ -23,6 +23,7 @@ import android.support.v4.app.Fragment;
 import android.support.annotation.Nullable;
 
 import com.nectarmicrosystems.me.R;
+import com.nectarmicrosystems.me.android.activities.MainActivity;
 
 /**
  * Created by Tobi Adeyinka on 2017. 08. 24..
@@ -35,6 +36,12 @@ public class PasswordsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_passwords_main_activity, container, false);
         return rootView;
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (this.isVisible()) ((MainActivity)getActivity()).restoreWindowLimits();
     }
 
 }

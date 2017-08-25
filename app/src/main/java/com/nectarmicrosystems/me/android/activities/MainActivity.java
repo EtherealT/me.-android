@@ -42,12 +42,21 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Window w = getWindow();
-        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        removeWindowLimits();
         setContentView(R.layout.activity_main);
         setupViewPager();
         drawer = (DrawerLayout)findViewById(R.id.main_activity_drawer);
         setupButtonListeners();
+    }
+
+    public void removeWindowLimits(){
+        Window window = getWindow();
+        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+    }
+
+    public void restoreWindowLimits(){
+        Window window = getWindow();
+        window.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
     }
 
     private void setupViewPager(){
@@ -74,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
                  */
                 viewPager.setCurrentItem(MainActivityPagerAdapter.TASKS_FRAGMENT);
                 drawer.closeDrawer(Gravity.LEFT);
+                restoreWindowLimits();
             }
         });
     }
@@ -88,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
                  */
                 viewPager.setCurrentItem(MainActivityPagerAdapter.FINANCES_FRAGMENT);
                 drawer.closeDrawer(Gravity.LEFT);
+                restoreWindowLimits();
             }
         });
     }
@@ -102,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
                  */
                 viewPager.setCurrentItem(MainActivityPagerAdapter.PASSWORDS_FRAGMENT);
                 drawer.closeDrawer(Gravity.LEFT);
+                restoreWindowLimits();
             }
         });
     }
@@ -116,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
                  */
                 viewPager.setCurrentItem(MainActivityPagerAdapter.JOURNAL_FRAGMENT);
                 drawer.closeDrawer(Gravity.LEFT);
+                restoreWindowLimits();
             }
         });
     }
