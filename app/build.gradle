@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.github.kt3k.coveralls'
 
+def openWeatherMapApiKey
+if (project.hasProperty('OPEN_WEATHER_MAP_API_KEY')) {
+    openWeatherMapApiKey = OPEN_WEATHER_MAP_API_KEY
+}
+else {
+    openWeatherMapApiKey = '\"' + System.getenv('OPEN_WEATHER_MAP_API_KEY') + '\"'
+}
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -13,7 +21,7 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         each { type ->
-            type.buildConfigField 'String', 'OPEN_WEATHER_MAP_API_KEY', project.hasProperty('OPEN_WEATHER_MAP_API_KEY') ? OPEN_WEATHER_MAP_API_KEY : System.getenv('OPEN_WEATHER_MAP_API_KEY')
+            type.buildConfigField 'String', 'OPEN_WEATHER_MAP_API_KEY', openWeatherMapApiKey
         }
     }
     buildTypes {
