@@ -33,19 +33,6 @@ android {
             testCoverageEnabled true
         }
     }
-    testOptions {
-        unitTests.returnDefaultValues = true
-        unitTests.all {
-            testLogging {
-                exceptionFormat "full"
-                events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
-                showCauses true
-                showExceptions true
-                showStackTraces true
-                showStandardStreams true
-            }
-        }
-    }
 }
 
 dependencies {
@@ -80,17 +67,6 @@ dependencies {
     }
 }
 
-tasks.withType(Test) {
-    testLogging {
-        exceptionFormat "full"
-        events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
-        showCauses true
-        showExceptions true
-        showStackTraces true
-        showStandardStreams true
-    }
-}
-
 coveralls {
     jacocoReportPath = "${buildDir}/reports/coverage/debug/report.xml"
 }
@@ -99,7 +75,3 @@ tasks.coveralls {
     dependsOn 'connectedAndroidTest'
     onlyIf { System.env.'CI' }
 }
-
-
-
-
