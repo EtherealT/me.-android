@@ -54,6 +54,19 @@ public class MainActivityUITest {
     public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(MainActivity.class);
 
     /*
+     * swipe to the last fragment & verify that the dashboard button returns to the first fragment
+     */
+    @Test
+    public void testDashboardButton(){
+        Intents.init();
+        swipeViewPagerLeft(4);
+        openDrawer();
+        clickButton(R.id.dashboard_button);
+        onView(withId(R.id.dash_fragment_root)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
+        Intents.release();
+    }
+
+    /*
      * verify that the tasks fragment is displayed when the tasks button is clicked
      */
     @Test

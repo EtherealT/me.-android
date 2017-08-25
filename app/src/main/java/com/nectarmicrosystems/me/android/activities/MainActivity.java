@@ -66,11 +66,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupButtonListeners(){
+        setupDashboardButtonListener();
         setupTasksButtonListener();
         setupFinancesButtonLister();
         setupPasswordsButtonListener();
         setupJournalButtonLister();
         setupSettingsButtonListener();
+    }
+
+    private void setupDashboardButtonListener(){
+        LinearLayout dashboardButton = (LinearLayout)findViewById(R.id.dashboard_button);
+        dashboardButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*
+                 * set the dash fragment as the active fragment then close the drawer
+                 */
+                viewPager.setCurrentItem(MainActivityPagerAdapter.DASH_FRAGMENT);
+                drawer.closeDrawer(Gravity.LEFT);
+                removeWindowLimits();
+            }
+        });
     }
 
     private void setupTasksButtonListener(){

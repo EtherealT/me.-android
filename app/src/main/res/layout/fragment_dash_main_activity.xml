@@ -21,7 +21,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="2">
+    android:weightSum="2"
+    android:id="@+id/dash_fragment_root">
 
     <RelativeLayout
         android:layout_width="match_parent"

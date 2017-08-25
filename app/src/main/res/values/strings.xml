@@ -23,4 +23,5 @@
     <string name="finances" translatable="true">Finances</string>
     <string name="tasks" translatable="true">Tasks</string>
     <string name="journal" translatable="true">Journal</string>
+    <string name="dashboard" translatable="true">Dashboard</string>
 </resources>
