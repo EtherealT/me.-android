@@ -17,9 +17,9 @@
   -->
 
 <resources>
-    <color name="colorPrimary">#3D3D3D</color>
-    <color name="colorPrimaryDark">#3D3D3D</color>
-    <color name="colorAccent">#FFFFFF</color>
+    <color name="colorPrimary">#0093D1</color>
+    <color name="colorPrimaryDark">#006495</color>
+    <color name="colorAccent">#F2635F</color>
     <color name="grey">#3D3D3D</color>
     <color name="greyB">#E5E5E5</color>
 </resources>

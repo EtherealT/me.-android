@@ -88,7 +88,7 @@
                         android:fontFamily="monospace"
                         android:textSize="18sp"
                         android:text="@string/dashboard"
-                        android:textColor="@color/grey"/>
+                        android:textColor="@color/colorPrimaryDark"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -118,7 +118,7 @@
                         android:fontFamily="monospace"
                         android:textSize="18sp"
                         android:text="@string/tasks"
-                        android:textColor="@color/grey"/>
+                        android:textColor="@color/colorPrimaryDark"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -148,7 +148,7 @@
                         android:fontFamily="monospace"
                         android:textSize="18sp"
                         android:text="@string/finances"
-                        android:textColor="@color/grey"/>
+                        android:textColor="@color/colorPrimaryDark"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -178,7 +178,7 @@
                         android:fontFamily="monospace"
                         android:textSize="18sp"
                         android:text="@string/passwords"
-                        android:textColor="@color/grey"/>
+                        android:textColor="@color/colorPrimaryDark"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -208,7 +208,7 @@
                         android:fontFamily="monospace"
                         android:textSize="18sp"
                         android:text="@string/journal"
-                        android:textColor="@color/grey"/>
+                        android:textColor="@color/colorPrimaryDark"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -238,7 +238,7 @@
                         android:fontFamily="monospace"
                         android:textSize="18sp"
                         android:text="@string/settings"
-                        android:textColor="@color/grey"/>
+                        android:textColor="@color/colorPrimaryDark"/>
                 </LinearLayout>
 
             </LinearLayout>

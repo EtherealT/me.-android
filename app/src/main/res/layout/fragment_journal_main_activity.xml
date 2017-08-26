@@ -43,7 +43,7 @@
             android:text="@string/journal"
             android:textSize="20sp"
             android:fontFamily="monospace"
-            android:textColor="@color/grey"/>
+            android:textColor="@color/colorPrimaryDark"/>
 
     </LinearLayout>
 
