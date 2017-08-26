@@ -41,6 +41,7 @@ import org.junit.runner.RunWith;
         PasswordActivityUITest.class,
         SitePasswordsRepositoryTest.class,
         FinanceEntriesRepositoryTest.class,
-        FinanceAccountsRepositoryTest.class
+        FinanceAccountsRepositoryTest.class,
+        NewSitePasswordActivityUITest.class
 })
 public class AndroidTestsSuite {}

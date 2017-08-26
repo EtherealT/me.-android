@@ -17,10 +17,23 @@
 
 package com.nectarmicrosystems.me.android;
 
+import android.support.test.runner.AndroidJUnit4;
+
+import org.junit.runner.RunWith;
+
 /**
  * Created by Tobi Adeyinka on 2017. 08. 15..
  */
 
-public abstract class TestUtils {
+@RunWith(AndroidJUnit4.class)
+public class AndroidTest {
+
+    protected void sleep(int seconds){
+        try {
+            Thread.sleep(seconds * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

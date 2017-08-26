@@ -1,13 +1,12 @@
 package com.nectarmicrosystems.me.android.database.repositories;
 
 import android.content.Context;
-import android.support.test.runner.AndroidJUnit4;
 import android.support.test.InstrumentationRegistry;
 
+import com.nectarmicrosystems.me.android.AndroidTest;
 import com.nectarmicrosystems.me.android.modules.finance_manger.entities.*;
 
 import org.junit.*;
-import org.junit.runner.RunWith;
 
 import java.util.Date;
 import java.math.BigDecimal;
@@ -18,8 +17,7 @@ import static org.junit.Assert.assertEquals;
  * Created by Tobi Adeyinka on 2017. 08. 25..
  */
 
-@RunWith(AndroidJUnit4.class)
-public class FinanceEntriesRepositoryTest {
+public class FinanceEntriesRepositoryTest extends AndroidTest{
 
     private FinanceAccountsRepository financeAccountsRepository;
     private FinanceEntriesRepository financeEntriesRepository;

@@ -18,26 +18,21 @@
 package com.nectarmicrosystems.me.android.ui_tests;
 
 import android.content.Context;
-import android.support.test.runner.AndroidJUnit4;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.espresso.intent.Intents;
 import android.support.test.InstrumentationRegistry;
 
+import com.nectarmicrosystems.me.android.AndroidTest;
 import com.nectarmicrosystems.me.android.activities.*;
 import com.nectarmicrosystems.me.android.utilities.SecurityManager;
 
 import org.junit.*;
-import org.junit.runner.RunWith;
-
-import static android.support.test.espresso.intent.Intents.intended;
-import static android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 
 /**
  * Created by Tobi Adeyinka on 2017. 08. 24..
  */
 
-@RunWith(AndroidJUnit4.class)
-public class SplashActivityUITest {
+public class SplashActivityUITest extends AndroidTest {
 
     @Rule
     public ActivityTestRule<SplashActivity> activityTestRule = new ActivityTestRule<>(SplashActivity.class);

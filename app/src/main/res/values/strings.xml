@@ -20,6 +20,7 @@
     <string name="password" translatable="true">Password</string>
     <string name="settings" translatable="true">Settings</string>
     <string name="passwords" translatable="true">Passwords</string>
+    <string name="new_password" translatable="true">New Password</string>
     <string name="finances" translatable="true">Finances</string>
     <string name="tasks" translatable="true">Tasks</string>
     <string name="journal" translatable="true">Journal</string>

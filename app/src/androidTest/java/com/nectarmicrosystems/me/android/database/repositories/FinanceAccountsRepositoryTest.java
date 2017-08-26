@@ -18,15 +18,14 @@
 package com.nectarmicrosystems.me.android.database.repositories;
 
 import android.content.Context;
-import android.support.test.runner.AndroidJUnit4;
 import android.support.test.InstrumentationRegistry;
 
+import com.nectarmicrosystems.me.android.AndroidTest;
 import com.nectarmicrosystems.me.android.modules.finance_manger.entities.Currency;
 import com.nectarmicrosystems.me.android.modules.finance_manger.entities.FinanceAccount;
 import com.nectarmicrosystems.me.android.modules.finance_manger.entities.FinanceAccountType;
 
 import org.junit.*;
-import org.junit.runner.RunWith;
 
 import java.math.BigDecimal;
 
@@ -36,8 +35,7 @@ import static org.junit.Assert.assertEquals;
  * Created by Tobi Adeyinka on 2017. 08. 18..
  */
 
-@RunWith(AndroidJUnit4.class)
-public class FinanceAccountsRepositoryTest {
+public class FinanceAccountsRepositoryTest extends AndroidTest{
 
     private FinanceAccountsRepository financeAccountsRepository;
 

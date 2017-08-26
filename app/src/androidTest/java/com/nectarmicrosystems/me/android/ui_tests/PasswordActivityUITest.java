@@ -17,21 +17,19 @@
 
 package com.nectarmicrosystems.me.android.ui_tests;
 
-import android.Manifest;
 import android.content.Context;
-import android.support.test.runner.AndroidJUnit4;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.espresso.intent.Intents;
 import android.support.test.InstrumentationRegistry;
 
 import com.nectarmicrosystems.me.R;
+import com.nectarmicrosystems.me.android.AndroidTest;
 import com.nectarmicrosystems.me.android.activities.MainActivity;
 import com.nectarmicrosystems.me.android.utilities.SecurityManager;
 import com.nectarmicrosystems.me.android.activities.PasswordActivity;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.intent.Intents.intended;
@@ -43,8 +41,7 @@ import static android.support.test.espresso.intent.matcher.IntentMatchers.hasCom
  * Created by Tobi Adeyinka on 2017. 08. 24..
  */
 
-@RunWith(AndroidJUnit4.class)
-public class PasswordActivityUITest {
+public class PasswordActivityUITest extends AndroidTest {
 
     @Rule
     public ActivityTestRule<PasswordActivity> activityTestRule = new ActivityTestRule<>(PasswordActivity.class);

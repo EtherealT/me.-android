@@ -15,26 +15,28 @@
  *
  */
 
-package com.nectarmicrosystems.me.android.networking.apis.forismatic_quotes;
+package com.nectarmicrosystems.me.android.ui_tests;
 
-import android.util.Log;
+import android.support.test.rule.ActivityTestRule;
 
 import com.nectarmicrosystems.me.android.AndroidTest;
-import com.nectarmicrosystems.me.android.networking.apis.open_weather_map.WeatherQueriesTest;
+import com.nectarmicrosystems.me.android.activities.NewSitePasswordActivity;
 
-import org.junit.*;
+import org.junit.Rule;
+import org.junit.Test;
 
 /**
- * Created by Tobi Adeyinka on 2017. 08. 20..
+ * Created by Tobi Adeyinka on 2017. 08. 26..
  */
 
-public class QuotesQueriesTest extends AndroidTest{
+public class NewSitePasswordActivityUITest extends AndroidTest{
+
+    @Rule
+    public ActivityTestRule<NewSitePasswordActivity> activityTestRule = new ActivityTestRule<>(NewSitePasswordActivity.class);
 
     @Test
-    public void testGetTodaysQuote(){
-        String response = QuotesQueries.getTodaysInspiringQuote();
-        Assert.assertFalse(response.isEmpty());
-        Log.i(WeatherQueriesTest.class.getCanonicalName(), "todays quote response: " + response);
+    public void emptyTest(){
+
     }
 
 }

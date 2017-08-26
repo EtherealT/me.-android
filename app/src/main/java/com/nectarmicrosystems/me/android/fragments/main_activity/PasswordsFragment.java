@@ -19,11 +19,14 @@ package com.nectarmicrosystems.me.android.fragments.main_activity;
 
 import android.view.*;
 import android.os.Bundle;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 
 import com.nectarmicrosystems.me.R;
 import com.nectarmicrosystems.me.android.activities.MainActivity;
+import com.nectarmicrosystems.me.android.activities.NewSitePasswordActivity;
 
 /**
  * Created by Tobi Adeyinka on 2017. 08. 24..
@@ -35,6 +38,7 @@ public class PasswordsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_passwords_main_activity, container, false);
+        setupFloatingActionButton(rootView);
         return rootView;
     }
 
@@ -42,6 +46,20 @@ public class PasswordsFragment extends Fragment {
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         if (this.isVisible()) ((MainActivity)getActivity()).restoreWindowLimits();
+    }
+
+    private void setupFloatingActionButton(ViewGroup rootView){
+        FloatingActionButton button = (FloatingActionButton)rootView.findViewById(R.id.fab_new_password);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*
+                 * Launch new site password activity
+                 */
+                Intent intent = new Intent(getContext(), NewSitePasswordActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }

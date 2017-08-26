@@ -18,11 +18,11 @@
 package com.nectarmicrosystems.me.android.utilities;
 
 import android.content.Context;
-import android.support.test.runner.AndroidJUnit4;
 import android.support.test.InstrumentationRegistry;
 
+import com.nectarmicrosystems.me.android.AndroidTest;
+
 import org.junit.*;
-import org.junit.runner.RunWith;
 
 import static org.junit.Assert.*;
 
@@ -30,8 +30,7 @@ import static org.junit.Assert.*;
  * Created by Tobi Adeyinka on 2017. 08. 15..
  */
 
-@RunWith(AndroidJUnit4.class)
-public class SecurityManagerTest {
+public class SecurityManagerTest extends AndroidTest {
 
     private Context context;
     private SecurityManager securityManager;

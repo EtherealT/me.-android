@@ -18,13 +18,12 @@
 package com.nectarmicrosystems.me.android.database.repositories;
 
 import android.content.Context;
-import android.support.test.runner.AndroidJUnit4;
 import android.support.test.InstrumentationRegistry;
 
+import com.nectarmicrosystems.me.android.AndroidTest;
 import com.nectarmicrosystems.me.android.modules.password_manager.entities.SitePassword;
 
 import org.junit.*;
-import org.junit.runner.RunWith;
 
 import static org.junit.Assert.assertEquals;
 
@@ -32,8 +31,7 @@ import static org.junit.Assert.assertEquals;
  * Created by Tobi Adeyinka on 2017. 08. 25..
  */
 
-@RunWith(AndroidJUnit4.class)
-public class SitePasswordsRepositoryTest {
+public class SitePasswordsRepositoryTest extends AndroidTest {
 
     private SitePasswordsRepository sitePasswordsRepository;
 
