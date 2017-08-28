@@ -21,6 +21,7 @@ import android.database.Cursor;
 import android.content.Context;
 import android.content.ContentValues;
 
+import com.nectarmicrosystems.me.android.config.ConfigValues;
 import com.nectarmicrosystems.me.android.modules.finance_manger.entities.FinanceEntry;
 import com.nectarmicrosystems.me.android.database.content_providers.FinanceEntriesProvider;
 
@@ -47,12 +48,17 @@ public class FinanceEntriesRepository implements DatabaseRepository<FinanceEntry
 
     @Override
     public void update(FinanceEntry data) {
-
+        ContentValues values = data.asContentValues();
+        String selection = ConfigValues.ID + "=?";
+        String[] selectionArgs = {data.getId().toString()};
+        context.getContentResolver().update(FinanceEntriesProvider.CONTENT_URI, values, selection, selectionArgs);
     }
 
     @Override
     public void delete(UUID dataId) {
-        context.getContentResolver().delete(FinanceEntriesProvider.CONTENT_URI, null, null);
+        String selection = ConfigValues.ID + "=?";
+        String[] selectionArgs = {dataId.toString()};
+        context.getContentResolver().delete(FinanceEntriesProvider.CONTENT_URI, selection, selectionArgs);
     }
 
     @Override
@@ -64,9 +70,8 @@ public class FinanceEntriesRepository implements DatabaseRepository<FinanceEntry
     public ArrayList<FinanceEntry> getAll() {
         ArrayList<FinanceEntry> entries = new ArrayList<>();
 
-        Cursor cursor = context.getApplicationContext()
-                .getContentResolver()
-                .query(FinanceEntriesProvider.CONTENT_URI, null, null, null,null, null);
+        Cursor cursor = context.getContentResolver()
+                .query(FinanceEntriesProvider.CONTENT_URI, ConfigValues.FINANCE_ENTRIES_TABLE_COLUMNS, null, null, null);
 
         if (cursor != null) {
             while (cursor.moveToNext()) entries.add(FinanceEntry.fromCursor(cursor));
@@ -78,6 +83,13 @@ public class FinanceEntriesRepository implements DatabaseRepository<FinanceEntry
 
     @Override
     public FinanceEntry getById(UUID dataId) {
-        return null;
+        String selection = ConfigValues.ID + "=?";
+        String[] selectionArgs = {dataId.toString()};
+
+        Cursor cursor = context.getContentResolver()
+                .query(FinanceEntriesProvider.CONTENT_URI, ConfigValues.FINANCE_ENTRIES_TABLE_COLUMNS, selection, selectionArgs, null);
+
+        if (cursor != null) cursor.moveToNext();
+        return cursor != null ? FinanceEntry.fromCursor(cursor) : null;
     }
 }

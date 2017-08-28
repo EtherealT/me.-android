@@ -39,6 +39,8 @@ public class FinanceAccountsRepositoryTest extends AndroidTest{
 
     private FinanceAccountsRepository financeAccountsRepository;
 
+    private static final String TEST_ACCOUNT_NAME = "Test Account";
+
     @Before
     public void setup() {
         Context context = InstrumentationRegistry.getTargetContext();
@@ -48,9 +50,37 @@ public class FinanceAccountsRepositoryTest extends AndroidTest{
 
     @Test
     public void testInsertNewFinanceAccount(){
-        FinanceAccount account = createFinanceAccountForTest();
-        financeAccountsRepository.insert(account);
+        createAndSaveFinanceAccountForTest();
         assertEquals(financeAccountsRepository.getAll().size(), 1);
+    }
+
+    @Test
+    public void testGetFinanceAccountById(){
+        FinanceAccount account = createAndSaveFinanceAccountForTest();
+        assertEquals(financeAccountsRepository.getById(account.getId()).getName(), TEST_ACCOUNT_NAME);
+    }
+
+    @Test
+    public void testUpdateFinanceAccount(){
+        FinanceAccount account = createAndSaveFinanceAccountForTest();
+        String newName = "New Name";
+        account.setName(newName);
+        financeAccountsRepository.update(account);
+        assertEquals(financeAccountsRepository.getById(account.getId()).getName(), newName);
+    }
+
+    @Test
+    public void testDeleteAccountById(){
+        FinanceAccount account = createAndSaveFinanceAccountForTest();
+        financeAccountsRepository.delete(account.getId());
+        assertEquals(financeAccountsRepository.getAll().size(), 0);
+    }
+
+    @Test
+    public void testDeleteAll(){
+        createAndSaveFinanceAccountForTest();
+        financeAccountsRepository.deleteAll();
+        assertEquals(financeAccountsRepository.getAll().size(), 0);
     }
 
     /*
@@ -61,8 +91,10 @@ public class FinanceAccountsRepositoryTest extends AndroidTest{
         financeAccountsRepository.deleteAll();
     }
 
-    private FinanceAccount createFinanceAccountForTest(){
-        return new FinanceAccount("Test Account", new BigDecimal(2000), FinanceAccountType.SAVINGS, Currency.USD);
+    private FinanceAccount createAndSaveFinanceAccountForTest(){
+        FinanceAccount account = new FinanceAccount(TEST_ACCOUNT_NAME, new BigDecimal(2000), FinanceAccountType.SAVINGS, Currency.USD);
+        financeAccountsRepository.insert(account);
+        return account;
     }
 
 }

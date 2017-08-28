@@ -35,6 +35,8 @@ public class SitePasswordsRepositoryTest extends AndroidTest {
 
     private SitePasswordsRepository sitePasswordsRepository;
 
+    private static final String TEST_SITE_NAME = "yahoo";
+
     @Before
     public void setup() {
         Context context = InstrumentationRegistry.getTargetContext();
@@ -44,9 +46,37 @@ public class SitePasswordsRepositoryTest extends AndroidTest {
 
     @Test
     public void testInsertNewSitePassword(){
-        SitePassword sitePassword = createSitePasswordForTest();
-        sitePasswordsRepository.insert(sitePassword);
+        createAndSaveSitePasswordForTest();
         assertEquals(sitePasswordsRepository.getAll().size(), 1);
+    }
+
+    @Test
+    public void testGetSitePasswordById(){
+        SitePassword sitePassword = createAndSaveSitePasswordForTest();
+        assertEquals(sitePasswordsRepository.getById(sitePassword.getId()).getSiteName(), TEST_SITE_NAME);
+    }
+
+    @Test
+    public void testUpdateSitePassword(){
+        SitePassword sitePassword = createAndSaveSitePasswordForTest();
+        String newSiteName = "facebook";
+        sitePassword.setSiteName(newSiteName);
+        sitePasswordsRepository.update(sitePassword);
+        assertEquals(sitePasswordsRepository.getById(sitePassword.getId()).getSiteName(), newSiteName);
+    }
+
+    @Test
+    public void testDeleteSitePasswordById(){
+        SitePassword sitePassword = createAndSaveSitePasswordForTest();
+        sitePasswordsRepository.delete(sitePassword.getId());
+        assertEquals(sitePasswordsRepository.getAll().size(), 0);
+    }
+
+    @Test
+    public void testDeleteAll(){
+        createAndSaveSitePasswordForTest();
+        sitePasswordsRepository.deleteAll();
+        assertEquals(sitePasswordsRepository.getAll().size(), 0);
     }
 
     /*
@@ -57,8 +87,10 @@ public class SitePasswordsRepositoryTest extends AndroidTest {
         sitePasswordsRepository.deleteAll();
     }
 
-    private SitePassword createSitePasswordForTest(){
-        return new SitePassword("yahoo", "password");
+    private SitePassword createAndSaveSitePasswordForTest(){
+        SitePassword sitePassword = new SitePassword(TEST_SITE_NAME, "password");
+        sitePasswordsRepository.insert(sitePassword);
+        return sitePassword;
     }
 
 }

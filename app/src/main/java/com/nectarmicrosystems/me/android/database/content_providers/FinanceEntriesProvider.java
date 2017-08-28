@@ -84,6 +84,7 @@ public class FinanceEntriesProvider extends ContentProvider {
 
     @Override
     public int update(@NonNull Uri uri, @Nullable ContentValues values, @Nullable String selection, @Nullable String[] selectionArgs) {
+        entriesTable.update(values, selection, selectionArgs);
         return 0;
     }
 

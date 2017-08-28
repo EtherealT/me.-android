@@ -45,7 +45,12 @@ public class SitePasswordsTable {
     }
 
     public void update(ContentValues values, String selection, String[] selectionArgs) {
-
+        database.update(
+                ConfigValues.SITE_PASSWORDS_TABLE,
+                values,
+                selection,
+                selectionArgs
+        );
     }
 
     @Nullable

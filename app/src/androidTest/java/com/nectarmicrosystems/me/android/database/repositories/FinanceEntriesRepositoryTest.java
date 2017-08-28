@@ -22,6 +22,8 @@ public class FinanceEntriesRepositoryTest extends AndroidTest{
     private FinanceAccountsRepository financeAccountsRepository;
     private FinanceEntriesRepository financeEntriesRepository;
 
+    private static final String TEST_ENTRY_DESCRIPTION = "Test Entry";
+
     @Before
     public void setup() {
         Context context = InstrumentationRegistry.getTargetContext();
@@ -32,9 +34,37 @@ public class FinanceEntriesRepositoryTest extends AndroidTest{
 
     @Test
     public void testInsertNewFinanceEntry(){
-        FinanceEntry entry = createFinanceEntryForTest();
-        financeEntriesRepository.insert(entry);
+        createAndSaveFinanceEntryForTest();
         assertEquals(financeEntriesRepository.getAll().size(), 1);
+    }
+
+    @Test
+    public void testGetFinanceEntryById(){
+        FinanceEntry entry = createAndSaveFinanceEntryForTest();
+        assertEquals(financeEntriesRepository.getById(entry.getId()).getDescription(), TEST_ENTRY_DESCRIPTION);
+    }
+
+    @Test
+    public void testUpdateFinanceEntry(){
+        FinanceEntry entry = createAndSaveFinanceEntryForTest();
+        String newDescription = "New Description";
+        entry.setDescription(newDescription);
+        financeEntriesRepository.update(entry);
+        assertEquals(financeEntriesRepository.getById(entry.getId()).getDescription(), newDescription);
+    }
+
+    @Test
+    public void testDeleteEntryById(){
+        FinanceEntry entry = createAndSaveFinanceEntryForTest();
+        financeEntriesRepository.delete(entry.getId());
+        assertEquals(financeEntriesRepository.getAll().size(), 0);
+    }
+
+    @Test
+    public void testDeleteAll(){
+        createAndSaveFinanceEntryForTest();
+        financeEntriesRepository.deleteAll();
+        assertEquals(financeEntriesRepository.getAll().size(), 0);
     }
 
     /*
@@ -46,13 +76,16 @@ public class FinanceEntriesRepositoryTest extends AndroidTest{
         financeAccountsRepository.deleteAll();
     }
 
-    private FinanceEntry createFinanceEntryForTest(){
-        FinanceAccount account = createFinanceAccountForTest();
-        financeAccountsRepository.insert(account);
-        return new FinanceEntry(new Date(), new BigDecimal(20.0), "test entry", account.getId(), FinanceEntryType.INCOME);
+    private FinanceEntry createAndSaveFinanceEntryForTest(){
+        FinanceAccount account = createAndSaveFinanceAccountForTest();
+        FinanceEntry entry = new FinanceEntry(new Date(), new BigDecimal(20.0), TEST_ENTRY_DESCRIPTION, account.getId(), FinanceEntryType.INCOME);
+        financeEntriesRepository.insert(entry);
+        return entry;
     }
 
-    private FinanceAccount createFinanceAccountForTest(){
-        return new FinanceAccount("Test Account", new BigDecimal(2000), FinanceAccountType.SAVINGS, Currency.USD);
+    private FinanceAccount createAndSaveFinanceAccountForTest(){
+        FinanceAccount account = new FinanceAccount("Test Account", new BigDecimal(2000), FinanceAccountType.SAVINGS, Currency.USD);
+        financeAccountsRepository.insert(account);
+        return account;
     }
 }

@@ -45,7 +45,12 @@ public class FinanceEntriesTable {
     }
 
     public void update(ContentValues values, String selection, String[] selectionArgs) {
-
+        database.update(
+                ConfigValues.FINANCE_ENTRIES_TABLE,
+                values,
+                selection,
+                selectionArgs
+        );
     }
 
     @Nullable

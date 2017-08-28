@@ -84,6 +84,7 @@ public class SitePasswordsProvider extends ContentProvider {
 
     @Override
     public int update(@NonNull Uri uri, @Nullable ContentValues values, @Nullable String selection, @Nullable String[] selectionArgs) {
+        sitePasswordsTable.update(values, selection, selectionArgs);
         return 0;
     }
 
