@@ -43,45 +43,59 @@ public class SitePassword {
     private String siteName;
     private String password;
 
-    public SitePassword(String siteName, String password, int logoResourceId) {
+    /*
+     * account identifier e.g email / username
+     */
+    private String accountIdentifier;
+
+    public SitePassword(String siteName, String accountIdentifier, String password, int logoResourceId) {
         id = UUID.randomUUID();
         this.siteName = siteName;
+        this.accountIdentifier = accountIdentifier;
         this.password = password;
         this.logoResourceId = logoResourceId;
     }
 
-    public SitePassword(String siteName, String password) {
+    public SitePassword(String siteName, String accountIdentifier, String password) {
         id = UUID.randomUUID();
         this.siteName = siteName;
+        this.accountIdentifier = accountIdentifier;
         this.password = password;
         logoResourceId = R.mipmap.ic_default_site_logo;
     }
 
-    private SitePassword(UUID id, String siteName, String password, int logoResourceId) {
+    private SitePassword(UUID id, String siteName, String accountIdentifier, String password, int logoResourceId) {
         this.id = id;
         this.siteName = siteName;
+        this.accountIdentifier = accountIdentifier;
         this.password = password;
         this.logoResourceId = logoResourceId;
     }
 
     public static SitePassword fromCursor(Cursor cursor){
         int idColumnIndex = cursor.getColumnIndex(ConfigValues.ID);
-        int siteNameColumnIndex = cursor.getColumnIndex(ConfigValues.SITE_NAME);
-        int passwordColumnIndex = cursor.getColumnIndex(ConfigValues.PASSWORD);
-        int logoResourceIdColumnIndex = cursor.getColumnIndex(ConfigValues.LOGO_RESOURCE_ID);
-
         UUID id = UUID.fromString(cursor.getString(idColumnIndex));
+
+        int siteNameColumnIndex = cursor.getColumnIndex(ConfigValues.SITE_NAME);
         String siteName = cursor.getString(siteNameColumnIndex);
+
+        int accountIdentifierColumnIndex = cursor.getColumnIndex(ConfigValues.ACCOUNT_IDENTIFIER);
+        String accountIdentifier = cursor.getString(accountIdentifierColumnIndex);
+
+        int passwordColumnIndex = cursor.getColumnIndex(ConfigValues.PASSWORD);
         String password = cursor.getString(passwordColumnIndex);
+
+        int logoResourceIdColumnIndex = cursor.getColumnIndex(ConfigValues.LOGO_RESOURCE_ID);
         int logoResourceId = cursor.getInt(logoResourceIdColumnIndex);
 
-        return new SitePassword(id, siteName, password, logoResourceId);
+        return new SitePassword(id, siteName, accountIdentifier, password, logoResourceId);
     }
 
     public ContentValues asContentValues(){
         ContentValues cv = new ContentValues();
         cv.put(ConfigValues.ID, id.toString());
         cv.put(ConfigValues.SITE_NAME, siteName);
+        cv.put(ConfigValues.ACCOUNT_IDENTIFIER, accountIdentifier);
         cv.put(ConfigValues.PASSWORD, password);
         cv.put(ConfigValues.LOGO_RESOURCE_ID, logoResourceId);
         return cv;

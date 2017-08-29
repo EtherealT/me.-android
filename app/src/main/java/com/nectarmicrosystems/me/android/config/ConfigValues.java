@@ -43,8 +43,9 @@ public abstract class ConfigValues {
     public static final String DESCRIPTION = "description";
     public static final String ACCOUNT_TYPE = "account_type";
     public static final String LOGO_RESOURCE_ID = "logo_resource_id";
+    public static final String ACCOUNT_IDENTIFIER = "account_identifier";
 
-    public static final String[] SITE_PASSWORDS_TABLE_COLUMNS = {ID, SITE_NAME, PASSWORD, LOGO_RESOURCE_ID};
+    public static final String[] SITE_PASSWORDS_TABLE_COLUMNS = {ID, SITE_NAME, ACCOUNT_IDENTIFIER, PASSWORD, LOGO_RESOURCE_ID};
     public static final String[] FINANCE_ACCOUNTS_TABLE_COLUMNS = {ID, NAME, BALANCE, ACCOUNT_TYPE, CURRENCY};
     public static final String[] FINANCE_ENTRIES_TABLE_COLUMNS = {ID, DATE, AMOUNT, DESCRIPTION, ACCOUNT_ID, ENTRY_TYPE};
 

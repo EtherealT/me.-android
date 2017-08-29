@@ -97,7 +97,7 @@ public class SitePasswordsRepositoryTest extends AndroidTest {
     }
 
     private SitePassword createAndSaveSitePasswordForTest(){
-        SitePassword sitePassword = new SitePassword(TEST_SITE_NAME, "password");
+        SitePassword sitePassword = new SitePassword(TEST_SITE_NAME, "test@test.com", "password");
         sitePasswordsRepository.insert(sitePassword);
         return sitePassword;
     }
