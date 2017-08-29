@@ -89,8 +89,14 @@ public class FinanceAccountsRepository implements DatabaseRepository<FinanceAcco
         Cursor cursor = context.getContentResolver()
                 .query(FinanceAccountsProvider.CONTENT_URI, ConfigValues.FINANCE_ENTRIES_TABLE_COLUMNS, selection, selectionArgs, null);
 
-        if (cursor != null) cursor.moveToNext();
-        return cursor != null ? FinanceAccount.fromCursor(cursor) : null;
+        FinanceAccount account = null;
+
+        if (cursor != null && cursor.getCount() > 0) {
+            cursor.moveToNext();
+            account = FinanceAccount.fromCursor(cursor);
+        }
+
+        return account;
     }
 
 }

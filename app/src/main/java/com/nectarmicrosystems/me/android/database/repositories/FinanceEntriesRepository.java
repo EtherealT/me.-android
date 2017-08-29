@@ -89,7 +89,13 @@ public class FinanceEntriesRepository implements DatabaseRepository<FinanceEntry
         Cursor cursor = context.getContentResolver()
                 .query(FinanceEntriesProvider.CONTENT_URI, ConfigValues.FINANCE_ENTRIES_TABLE_COLUMNS, selection, selectionArgs, null);
 
-        if (cursor != null) cursor.moveToNext();
-        return cursor != null ? FinanceEntry.fromCursor(cursor) : null;
+        FinanceEntry entry = null;
+
+        if (cursor != null && cursor.getCount() > 0) {
+            cursor.moveToNext();
+            entry = FinanceEntry.fromCursor(cursor);
+        }
+
+        return entry;
     }
 }

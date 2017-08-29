@@ -9,8 +9,10 @@ import com.nectarmicrosystems.me.android.modules.finance_manger.entities.*;
 import org.junit.*;
 
 import java.util.Date;
+import java.util.UUID;
 import java.math.BigDecimal;
 
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -42,6 +44,12 @@ public class FinanceEntriesRepositoryTest extends AndroidTest{
     public void testGetFinanceEntryById(){
         FinanceEntry entry = createAndSaveFinanceEntryForTest();
         assertEquals(financeEntriesRepository.getById(entry.getId()).getDescription(), TEST_ENTRY_DESCRIPTION);
+    }
+
+    @Test
+    public void testGetFinanceEntryWithNonExistingId(){
+        FinanceEntry entry = financeEntriesRepository.getById(UUID.randomUUID());
+        assertNull(entry);
     }
 
     @Test

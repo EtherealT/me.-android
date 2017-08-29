@@ -27,8 +27,10 @@ import com.nectarmicrosystems.me.android.modules.finance_manger.entities.Finance
 
 import org.junit.*;
 
+import java.util.UUID;
 import java.math.BigDecimal;
 
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -58,6 +60,12 @@ public class FinanceAccountsRepositoryTest extends AndroidTest{
     public void testGetFinanceAccountById(){
         FinanceAccount account = createAndSaveFinanceAccountForTest();
         assertEquals(financeAccountsRepository.getById(account.getId()).getName(), TEST_ACCOUNT_NAME);
+    }
+
+    @Test
+    public void testGetFinanceAccountWithNonExistingId(){
+        FinanceAccount account = financeAccountsRepository.getById(UUID.randomUUID());
+        assertNull(account);
     }
 
     @Test

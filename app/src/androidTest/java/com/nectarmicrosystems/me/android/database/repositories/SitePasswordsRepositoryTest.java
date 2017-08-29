@@ -25,6 +25,9 @@ import com.nectarmicrosystems.me.android.modules.password_manager.entities.SiteP
 
 import org.junit.*;
 
+import java.util.UUID;
+
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -54,6 +57,12 @@ public class SitePasswordsRepositoryTest extends AndroidTest {
     public void testGetSitePasswordById(){
         SitePassword sitePassword = createAndSaveSitePasswordForTest();
         assertEquals(sitePasswordsRepository.getById(sitePassword.getId()).getSiteName(), TEST_SITE_NAME);
+    }
+
+    @Test
+    public void testGetSitePasswordWithNonExistingId(){
+        SitePassword password = sitePasswordsRepository.getById(UUID.randomUUID());
+        assertNull(password);
     }
 
     @Test

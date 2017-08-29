@@ -89,7 +89,13 @@ public class SitePasswordsRepository implements DatabaseRepository<SitePassword>
         Cursor cursor = context.getContentResolver()
                 .query(SitePasswordsProvider.CONTENT_URI, ConfigValues.SITE_PASSWORDS_TABLE_COLUMNS, selection, selectionArgs, null);
 
-        if (cursor != null) cursor.moveToNext();
-        return cursor != null ? SitePassword.fromCursor(cursor) : null;
+        SitePassword sitePassword = null;
+
+        if (cursor != null && cursor.getCount() > 0) {
+            cursor.moveToNext();
+            sitePassword = SitePassword.fromCursor(cursor);
+        }
+
+        return sitePassword;
     }
 }
