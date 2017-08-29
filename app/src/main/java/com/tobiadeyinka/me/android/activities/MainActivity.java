@@ -17,7 +17,6 @@
 
 package com.tobiadeyinka.me.android.activities;
 
-import android.support.v4.content.ContextCompat;
 import android.view.*;
 import android.os.Bundle;
 import android.content.Intent;
@@ -25,6 +24,7 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
 import com.tobiadeyinka.me.R;
