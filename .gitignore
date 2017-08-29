@@ -7,6 +7,6 @@
 .externalNativeBuild
 /.idea
 *.apk
-/app/src/main/java/com/nectarmicrosystems/me/android/config/Sensitive.java
+/app/src/main/java/com/tobiadeyinka/me/android/config/Sensitive.java
 /.env
 /gradle.properties
