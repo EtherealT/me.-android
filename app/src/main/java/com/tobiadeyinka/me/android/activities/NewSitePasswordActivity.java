@@ -19,12 +19,14 @@ package com.tobiadeyinka.me.android.activities;
 
 import android.os.Bundle;
 import android.view.Window;
+import android.widget.Spinner;
 import android.view.WindowManager;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
 import com.tobiadeyinka.me.R;
+import com.tobiadeyinka.me.android.modules.password_manager.WebsitesSpinnerAdapter;
 
 /**
  * Created by Tobi Adeyinka on 2017. 08. 26..
@@ -32,11 +34,23 @@ import com.tobiadeyinka.me.R;
 
 public class NewSitePasswordActivity extends AppCompatActivity {
 
+    /*
+     * spinner for selecting password app/website
+     */
+    private Spinner siteSelector;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_site_password);
         colorStatusBar();
+        setUpSiteSelector();
+    }
+
+    private void setUpSiteSelector(){
+        siteSelector = (Spinner)findViewById(R.id.app_website_selector);
+        WebsitesSpinnerAdapter siteSelectorAdapter = new WebsitesSpinnerAdapter(this);
+        siteSelector.setAdapter(siteSelectorAdapter);
     }
 
     private void colorStatusBar(){
