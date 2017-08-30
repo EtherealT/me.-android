@@ -38,7 +38,7 @@ public class SecurityManagerTest extends AndroidTest {
     private final String PASSWORD = "password";
 
     @Before
-    public void setup() {
+    public void setUp() {
         Context context = InstrumentationRegistry.getTargetContext();
         securityManager = new SecurityManager(context);
         preferencesManager = new PreferencesManager(context);
