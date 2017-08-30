@@ -54,11 +54,9 @@ public class PreferencesManager {
             "Jim Carey"
     };
 
-    private Context context;
     private SharedPreferences preferences;
 
     public PreferencesManager(Context context) {
-        this.context = context;
         preferences = context.getSharedPreferences(PREFERENCES_ID, Context.MODE_PRIVATE);
     }
 

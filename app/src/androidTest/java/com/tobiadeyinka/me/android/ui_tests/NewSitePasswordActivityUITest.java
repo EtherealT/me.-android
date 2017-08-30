@@ -36,7 +36,7 @@ public class NewSitePasswordActivityUITest extends AndroidTest{
 
     @Test
     public void emptyTest(){
-
+        // temporary placeholder to prevent this class from causing test failures
     }
 
 }

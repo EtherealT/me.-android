@@ -27,7 +27,6 @@ import android.content.Context;
 
 public class SecurityManager {
 
-    private Context context;
     private PreferencesManager preferencesManager;
 
     /*
@@ -38,7 +37,6 @@ public class SecurityManager {
     private final String hashedPassword;
 
     public SecurityManager(Context context) {
-        this.context = context;
         preferencesManager = new PreferencesManager(context);
         hashedPassword = preferencesManager.getPasswordHash();
     }

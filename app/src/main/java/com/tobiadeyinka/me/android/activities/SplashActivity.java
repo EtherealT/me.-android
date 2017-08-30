@@ -29,7 +29,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
 import com.tobiadeyinka.me.android.utilities.SecurityManager;
-import com.tobiadeyinka.me.android.utilities.PreferencesManager;
 import com.tobiadeyinka.me.android.modules.quotes.QuotesQueryTask;
 
 import java.util.*;
@@ -37,13 +36,10 @@ import java.util.*;
 public class SplashActivity extends AppCompatActivity {
 
     private static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
-    private PreferencesManager preferencesManager;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        preferencesManager = new PreferencesManager(this);
         requestPermissions();
         getNewData();
     }
@@ -102,23 +98,6 @@ public class SplashActivity extends AppCompatActivity {
         Class nextActivity = securityManager.checkPasswordProtection() ? PasswordActivity.class : MainActivity.class;
         startActivity(new Intent(this, nextActivity));
         finish();
-    }
-
-    private boolean isNewDay() {
-        Calendar last = preferencesManager.getLastRunDate();
-        Calendar now = Calendar.getInstance();
-
-        boolean sameDay = last.get(Calendar.YEAR) == now.get(Calendar.YEAR) &&
-                last.get(Calendar.DAY_OF_YEAR) == now.get(Calendar.DAY_OF_YEAR);
-
-        Log.i(SplashActivity.class.getCanonicalName(), "is new day: " + !sameDay);
-        preferencesManager.setLastRunDate(System.currentTimeMillis());
-
-        return !sameDay;
-    }
-
-    private boolean isFirstRun(){
-        return preferencesManager.isFirstRun();
     }
 
     private void getNewData(){

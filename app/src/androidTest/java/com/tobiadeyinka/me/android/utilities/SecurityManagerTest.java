@@ -32,7 +32,6 @@ import static org.junit.Assert.*;
 
 public class SecurityManagerTest extends AndroidTest {
 
-    private Context context;
     private SecurityManager securityManager;
     private PreferencesManager preferencesManager;
 
@@ -40,7 +39,7 @@ public class SecurityManagerTest extends AndroidTest {
 
     @Before
     public void setup() {
-        context = InstrumentationRegistry.getTargetContext();
+        Context context = InstrumentationRegistry.getTargetContext();
         securityManager = new SecurityManager(context);
         preferencesManager = new PreferencesManager(context);
     }

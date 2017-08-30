@@ -27,7 +27,7 @@ public class FinanceEntriesRepositoryTest extends AndroidTest{
     private static final String TEST_ENTRY_DESCRIPTION = "Test Entry";
 
     @Before
-    public void setup() {
+    public void setUp() {
         Context context = InstrumentationRegistry.getTargetContext();
         financeAccountsRepository = new FinanceAccountsRepository(context);
         financeEntriesRepository = new FinanceEntriesRepository(context);
@@ -86,7 +86,7 @@ public class FinanceEntriesRepositoryTest extends AndroidTest{
 
     private FinanceEntry createAndSaveFinanceEntryForTest(){
         FinanceAccount account = createAndSaveFinanceAccountForTest();
-        FinanceEntry entry = new FinanceEntry(new Date(), new BigDecimal(20.0), TEST_ENTRY_DESCRIPTION, account.getId(), FinanceEntryType.INCOME);
+        FinanceEntry entry = new FinanceEntry(new Date(), new BigDecimal("20.0"), TEST_ENTRY_DESCRIPTION, account.getId(), FinanceEntryType.INCOME);
         financeEntriesRepository.insert(entry);
         return entry;
     }

@@ -68,7 +68,7 @@ public class QuotesQueryTask extends AsyncTask<Void, Void, Quote> {
     private boolean internetAvailable() {
         try {
             InetAddress ipAddr = InetAddress.getByName("google.com");
-            return !ipAddr.equals("");
+            return !("").equals(ipAddr);
         } catch (Exception e) {
             e.printStackTrace();
             return false;

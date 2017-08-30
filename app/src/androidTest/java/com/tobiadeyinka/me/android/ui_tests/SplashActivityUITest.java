@@ -40,7 +40,7 @@ public class SplashActivityUITest extends AndroidTest {
     private SecurityManager securityManager;
 
     @Before
-    public void setup() {
+    public void setUp() {
         Context context = InstrumentationRegistry.getTargetContext();
         securityManager = new SecurityManager(context);
     }

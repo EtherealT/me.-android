@@ -41,7 +41,7 @@ public class SitePasswordsRepositoryTest extends AndroidTest {
     private static final String TEST_SITE_NAME = "yahoo";
 
     @Before
-    public void setup() {
+    public void setUp() {
         Context context = InstrumentationRegistry.getTargetContext();
         sitePasswordsRepository = new SitePasswordsRepository(context);
         emptyDatabase();

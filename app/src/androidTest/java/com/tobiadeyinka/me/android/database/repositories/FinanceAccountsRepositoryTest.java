@@ -44,7 +44,7 @@ public class FinanceAccountsRepositoryTest extends AndroidTest{
     private static final String TEST_ACCOUNT_NAME = "Test Account";
 
     @Before
-    public void setup() {
+    public void setUp() {
         Context context = InstrumentationRegistry.getTargetContext();
         financeAccountsRepository = new FinanceAccountsRepository(context);
         emptyDatabase();

@@ -42,7 +42,7 @@ public class PasswordActivity extends AppCompatActivity {
         passwordField.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
+                // default
             }
 
             @Override
@@ -52,7 +52,7 @@ public class PasswordActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                // default
             }
         });
     }
