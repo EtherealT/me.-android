@@ -28,11 +28,14 @@ abstract class WebsitesManager {
 
     private static final Website[] WEBSITES = {
             new Website("Facebook", R.mipmap.ic_facebook_logo),
+            new Website("Google", R.mipmap.ic_google_logo),
+            new Website("Instagram", R.mipmap.ic_instagram_logo),
+            new Website("Netflix", R.mipmap.ic_netflix_logo),
             new Website("Twitter", R.mipmap.ic_twitter_logo),
-            new Website("Netflix", R.mipmap.ic_netflix_logo)
+            new Website("Yahoo", R.mipmap.ic_yahoo_logo)
     };
 
-    public static Website[] getWEBSITES() {
+    static Website[] getWEBSITES() {
         return WEBSITES;
     }
 

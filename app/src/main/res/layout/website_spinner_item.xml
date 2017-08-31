@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="5dp"
-        android:weightSum="5">
+        android:weightSum="6">
 
         <ImageView
             android:id="@+id/website_logo"
@@ -38,12 +38,13 @@
             android:id="@+id/website_name"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="4"
+            android:layout_weight="5"
             android:padding="5dp"
             android:layout_gravity="center"
             android:textSize="20sp"
-            android:textStyle="normal"
-            android:gravity="center_vertical"/>
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:textColor="@color/colorPrimaryDark"/>
     </LinearLayout>
 
 </RelativeLayout>
