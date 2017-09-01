@@ -51,9 +51,12 @@
             android:name="com.tobiadeyinka.me.android.activities.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
-        <activity android:name="com.tobiadeyinka.me.android.activities.SettingsActivity" />
+        <activity 
+            android:name="com.tobiadeyinka.me.android.activities.SettingsActivity" 
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
-        <activity android:name="com.tobiadeyinka.me.android.activities.NewSitePasswordActivity"
+        <activity 
+            android:name="com.tobiadeyinka.me.android.activities.NewSitePasswordActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <provider
