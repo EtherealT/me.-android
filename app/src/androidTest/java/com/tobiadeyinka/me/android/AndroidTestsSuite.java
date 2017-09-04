@@ -19,10 +19,10 @@ package com.tobiadeyinka.me.android;
 
 import com.tobiadeyinka.me.android.database.repositories.*;
 import com.tobiadeyinka.me.android.ui_tests.modules.main.*;
-import com.tobiadeyinka.me.android.ui_tests.modules.password_manager.PasswordManagerUITests;
 import com.tobiadeyinka.me.android.utilities.SecurityManagerTest;
 import com.tobiadeyinka.me.android.networking.apis.forismatic_quotes.QuotesQueriesTest;
 import com.tobiadeyinka.me.android.networking.apis.open_weather_map.WeatherQueriesTest;
+import com.tobiadeyinka.me.android.ui_tests.modules.password_manager.PasswordManagerUITests;
 import com.tobiadeyinka.me.android.ui_tests.modules.password_manager.NewSitePasswordActivityUITest;
 
 import org.junit.runners.Suite;

@@ -61,6 +61,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         db.execSQL("CREATE TABLE " + ConfigValues.SITE_PASSWORDS_TABLE + " (" +
                 ConfigValues.ID + " TEXT PRIMARY KEY NOT NULL, " +
+                ConfigValues.RANKING + " TEXT NOT NULL, " +
                 ConfigValues.SITE_NAME + " TEXT NOT NULL, " +
                 ConfigValues.ACCOUNT_IDENTIFIER + " TEXT NOT NULL, " +
                 ConfigValues.PASSWORD + " TEXT NOT NULL, " +

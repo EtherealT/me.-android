@@ -30,12 +30,15 @@ import com.tobiadeyinka.me.android.modules.password_manager.entities.Website;
 
 public class WebsitesSpinnerAdapter extends BaseAdapter{
 
-    private static Website[] WEBSITES;
     private Context context;
+    private static final Website[] WEBSITES;
+
+    static {
+        WEBSITES = WebsitesManager.getWEBSITES();
+    }
 
     public WebsitesSpinnerAdapter(Context context) {
         this.context = context;
-        WEBSITES = WebsitesManager.getWEBSITES();
     }
 
     @Override
@@ -55,14 +58,28 @@ public class WebsitesSpinnerAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        convertView = LayoutInflater.from(context).inflate(R.layout.website_spinner_item, parent, false);
+        ViewHolder viewHolder;
 
-        ImageView logoImageView = (ImageView)convertView.findViewById(R.id.website_logo);
-        logoImageView.setImageResource(WEBSITES[position].getLogoResourceId());
+        if (convertView == null){
+            viewHolder = new ViewHolder();
+            convertView = LayoutInflater.from(context).inflate(R.layout.website_spinner_item, parent, false);
 
-        TextView websiteNameTextView = (TextView)convertView.findViewById(R.id.website_name);
-        websiteNameTextView.setText(WEBSITES[position].getName());
+            viewHolder.logoImageView = (ImageView)convertView.findViewById(R.id.website_logo);
+            viewHolder.websiteNameTextView = (TextView)convertView.findViewById(R.id.website_name);
+
+            convertView.setTag(viewHolder);
+        }
+        else viewHolder = (ViewHolder)convertView.getTag();
+
+        viewHolder.logoImageView.setImageResource(WEBSITES[position].getLogoResourceId());
+        viewHolder.websiteNameTextView.setText(WEBSITES[position].getName());
 
         return convertView;
     }
+
+    private static class ViewHolder {
+        private ImageView logoImageView;
+        private TextView websiteNameTextView;
+    }
+
 }

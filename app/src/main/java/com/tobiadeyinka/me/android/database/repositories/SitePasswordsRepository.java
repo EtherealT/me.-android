@@ -71,7 +71,13 @@ public class SitePasswordsRepository implements DatabaseRepository<SitePassword>
         ArrayList<SitePassword> sitePasswords = new ArrayList<>();
 
         Cursor cursor = context.getContentResolver()
-                .query(SitePasswordsProvider.CONTENT_URI, ConfigValues.SITE_PASSWORDS_TABLE_COLUMNS, null, null, null);
+                .query(
+                    SitePasswordsProvider.CONTENT_URI,
+                    ConfigValues.SITE_PASSWORDS_TABLE_COLUMNS,
+                    null,
+                    null,
+                    ConfigValues.RANKING + " ASC"
+                );
 
         if (cursor != null) {
             while (cursor.moveToNext()) sitePasswords.add(SitePassword.fromCursor(cursor));
@@ -87,7 +93,13 @@ public class SitePasswordsRepository implements DatabaseRepository<SitePassword>
         String[] selectionArgs = {dataId.toString()};
 
         Cursor cursor = context.getContentResolver()
-                .query(SitePasswordsProvider.CONTENT_URI, ConfigValues.SITE_PASSWORDS_TABLE_COLUMNS, selection, selectionArgs, null);
+                .query(
+                    SitePasswordsProvider.CONTENT_URI,
+                    ConfigValues.SITE_PASSWORDS_TABLE_COLUMNS,
+                    selection,
+                    selectionArgs,
+                    null
+                );
 
         SitePassword sitePassword = null;
 

@@ -37,19 +37,28 @@ public class SitePassword {
     private final UUID id;
 
     /*
+     * list ranking
+     */
+    private int ranking;
+
+    /*
      * site/app logo drawable resource id
      */
     private int logoResourceId;
+
     private String siteName;
-    private String password;
 
     /*
      * account identifier e.g email / username
      */
     private String accountIdentifier;
 
+    private String password;
+
+
     public SitePassword(String siteName, String accountIdentifier, String password, int logoResourceId) {
         id = UUID.randomUUID();
+        ranking = 0;
         this.siteName = siteName;
         this.accountIdentifier = accountIdentifier;
         this.password = password;
@@ -58,14 +67,16 @@ public class SitePassword {
 
     public SitePassword(String siteName, String accountIdentifier, String password) {
         id = UUID.randomUUID();
+        ranking = 0;
         this.siteName = siteName;
         this.accountIdentifier = accountIdentifier;
         this.password = password;
         logoResourceId = R.mipmap.ic_default_site_logo;
     }
 
-    private SitePassword(UUID id, String siteName, String accountIdentifier, String password, int logoResourceId) {
+    private SitePassword(UUID id, int ranking, String siteName, String accountIdentifier, String password, int logoResourceId) {
         this.id = id;
+        this.ranking = ranking;
         this.siteName = siteName;
         this.accountIdentifier = accountIdentifier;
         this.password = password;
@@ -75,6 +86,9 @@ public class SitePassword {
     public static SitePassword fromCursor(Cursor cursor){
         int idColumnIndex = cursor.getColumnIndex(ConfigValues.ID);
         UUID id = UUID.fromString(cursor.getString(idColumnIndex));
+
+        int rankingColumnIndex = cursor.getColumnIndex(ConfigValues.RANKING);
+        int ranking = cursor.getInt(rankingColumnIndex);
 
         int siteNameColumnIndex = cursor.getColumnIndex(ConfigValues.SITE_NAME);
         String siteName = cursor.getString(siteNameColumnIndex);
@@ -88,12 +102,13 @@ public class SitePassword {
         int logoResourceIdColumnIndex = cursor.getColumnIndex(ConfigValues.LOGO_RESOURCE_ID);
         int logoResourceId = cursor.getInt(logoResourceIdColumnIndex);
 
-        return new SitePassword(id, siteName, accountIdentifier, password, logoResourceId);
+        return new SitePassword(id, ranking, siteName, accountIdentifier, password, logoResourceId);
     }
 
     public ContentValues asContentValues(){
         ContentValues cv = new ContentValues();
         cv.put(ConfigValues.ID, id.toString());
+        cv.put(ConfigValues.RANKING, ranking);
         cv.put(ConfigValues.SITE_NAME, siteName);
         cv.put(ConfigValues.ACCOUNT_IDENTIFIER, accountIdentifier);
         cv.put(ConfigValues.PASSWORD, password);
@@ -103,6 +118,14 @@ public class SitePassword {
 
     public UUID getId() {
         return id;
+    }
+
+    public int getRanking() {
+        return ranking;
+    }
+
+    public void setRanking(int ranking) {
+        this.ranking = ranking;
     }
 
     public int getLogoResourceId() {
@@ -119,6 +142,14 @@ public class SitePassword {
 
     public void setSiteName(String siteName) {
         this.siteName = siteName;
+    }
+
+    public String getAccountIdentifier() {
+        return accountIdentifier;
+    }
+
+    public void setAccountIdentifier(String accountIdentifier) {
+        this.accountIdentifier = accountIdentifier;
     }
 
     public String getPassword() {
@@ -150,4 +181,5 @@ public class SitePassword {
         result = 31 * result + password.hashCode();
         return result;
     }
+
 }
