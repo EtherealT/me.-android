@@ -16,6 +16,7 @@
 
 <resources>
     <string name="app_name">Me.</string>
+    <string name="save" translatable="true">Save</string>
     <string name="tasks" translatable="true">Tasks</string>
     <string name="unlock" translatable="true">Unlock</string>
     <string name="journal" translatable="true">Journal</string>
@@ -25,5 +26,6 @@
     <string name="dashboard" translatable="true">Dashboard</string>
     <string name="passwords" translatable="true">Passwords</string>
     <string name="new_password" translatable="true">New Password</string>
-    <string name="website_or_password" translatable="true">Website/App</string>
+    <string name="website_or_app" translatable="true">Website/App</string>
+    <string name="email_or_username" translatable="true">Email/Username</string>
 </resources>

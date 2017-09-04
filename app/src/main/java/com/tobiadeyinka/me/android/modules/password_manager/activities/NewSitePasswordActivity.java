@@ -45,6 +45,11 @@ public class NewSitePasswordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_site_password);
         colorStatusBar();
         setUpSiteSelector();
+
+        /*
+         * stop the keyboard from popping up on activity start
+         */
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
     }
 
     private void setUpSiteSelector(){

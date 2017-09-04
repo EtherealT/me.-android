@@ -16,10 +16,10 @@ but mostly for fun. I have plans for a web interface as well, but that's a littl
     
 ## Features
 * Inspirational Quotes
+* Password Manager -- planned
 * Journal -- planned
 * Task Manager -- planned
 * Finance Manager -- planned
-* Password Manager -- planned
     
     
 ## Installation / Running
