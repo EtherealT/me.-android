@@ -24,7 +24,7 @@ import com.tobiadeyinka.me.android.modules.password_manager.entities.Website;
  * Created by Tobi Adeyinka on 2017. 08. 30..
  */
 
-abstract class WebsitesManager {
+public abstract class WebsitesManager {
 
     private static final Website[] WEBSITES = {
             new Website("Facebook", R.mipmap.ic_facebook_logo),
@@ -37,7 +37,7 @@ abstract class WebsitesManager {
             new Website("Yahoo", R.mipmap.ic_yahoo_logo)
     };
 
-    static Website[] getWEBSITES() {
+    public static Website[] getWEBSITES() {
         return WEBSITES;
     }
 

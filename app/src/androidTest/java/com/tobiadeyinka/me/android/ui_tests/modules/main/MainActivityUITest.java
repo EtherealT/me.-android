@@ -148,7 +148,7 @@ public class MainActivityUITest extends AndroidTest{
     }
 
     /*
-     * verify that the finance fragment is displayed after three swipes
+     * verify that the passwords fragment is displayed after three swipes
      */
     @Test
     public void testThreeLeftSwipes(){

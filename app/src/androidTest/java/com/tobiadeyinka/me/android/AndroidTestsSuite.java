@@ -19,6 +19,7 @@ package com.tobiadeyinka.me.android;
 
 import com.tobiadeyinka.me.android.database.repositories.*;
 import com.tobiadeyinka.me.android.ui_tests.modules.main.*;
+import com.tobiadeyinka.me.android.ui_tests.modules.password_manager.PasswordManagerUITests;
 import com.tobiadeyinka.me.android.utilities.SecurityManagerTest;
 import com.tobiadeyinka.me.android.networking.apis.forismatic_quotes.QuotesQueriesTest;
 import com.tobiadeyinka.me.android.networking.apis.open_weather_map.WeatherQueriesTest;
@@ -39,6 +40,7 @@ import org.junit.runner.RunWith;
         SecurityManagerTest.class,
         SplashActivityUITest.class,
         PasswordActivityUITest.class,
+        PasswordManagerUITests.class,
         SitePasswordsRepositoryTest.class,
         FinanceEntriesRepositoryTest.class,
         FinanceAccountsRepositoryTest.class,

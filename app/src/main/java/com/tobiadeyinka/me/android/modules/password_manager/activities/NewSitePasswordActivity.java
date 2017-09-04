@@ -17,15 +17,18 @@
 
 package com.tobiadeyinka.me.android.modules.password_manager.activities;
 
+import android.view.*;
+import android.widget.*;
 import android.os.Bundle;
-import android.view.Window;
-import android.widget.Spinner;
-import android.view.WindowManager;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
 import com.tobiadeyinka.me.R;
+import com.tobiadeyinka.me.android.modules.password_manager.entities.Website;
+import com.tobiadeyinka.me.android.modules.password_manager.entities.SitePassword;
+import com.tobiadeyinka.me.android.database.repositories.SitePasswordsRepository;
+import com.tobiadeyinka.me.android.modules.password_manager.utils.WebsitesManager;
 import com.tobiadeyinka.me.android.modules.password_manager.utils.WebsitesSpinnerAdapter;
 
 /**
@@ -39,23 +42,89 @@ public class NewSitePasswordActivity extends AppCompatActivity {
      */
     private Spinner siteSelector;
 
+    /*
+     * account identifier input field
+     */
+    private EditText accountIdentifierInput;
+
+    /*
+     * password input field
+     */
+    private EditText passwordInput;
+
+    /*
+     * repository for database access
+     */
+    private SitePasswordsRepository sitePasswordsRepository;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_site_password);
+
         colorStatusBar();
         setUpSiteSelector();
+        setUpAccountIdentifierInputField();
+        setUpPasswordInputField();
+        setUpSaveButton();
 
         /*
          * stop the keyboard from popping up on activity start
          */
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+
+        sitePasswordsRepository = new SitePasswordsRepository(this);
     }
 
     private void setUpSiteSelector(){
         siteSelector = (Spinner)findViewById(R.id.app_website_selector);
         WebsitesSpinnerAdapter siteSelectorAdapter = new WebsitesSpinnerAdapter(this);
         siteSelector.setAdapter(siteSelectorAdapter);
+    }
+
+    private void setUpAccountIdentifierInputField(){
+        accountIdentifierInput = (EditText)findViewById(R.id.account_identifier_input);
+    }
+
+    private void setUpPasswordInputField(){
+        passwordInput = (EditText)findViewById(R.id.password_input);
+    }
+
+    private void setUpSaveButton(){
+        Button saveButton = (Button)findViewById(R.id.save_password_button);
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String accountIdentifier = accountIdentifierInput.getText().toString();
+                String password = passwordInput.getText().toString();
+                validateInput(accountIdentifier, password);
+
+                Website website = WebsitesManager.getWEBSITES()[siteSelector.getSelectedItemPosition()];
+                SitePassword sitePassword = new SitePassword(
+                        website.getName(),
+                        accountIdentifier,
+                        password,
+                        website.getLogoResourceId()
+                );
+
+                sitePasswordsRepository.insert(sitePassword);
+                finish();
+            }
+        });
+    }
+
+    private boolean validateInput(String accountIdentifier, String password){
+        if (accountIdentifier.isEmpty()) {
+            Toast.makeText(this, getString(R.string.error_1), Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (password.isEmpty()) {
+            Toast.makeText(this, getString(R.string.error_2), Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        return true;
     }
 
     private void colorStatusBar(){

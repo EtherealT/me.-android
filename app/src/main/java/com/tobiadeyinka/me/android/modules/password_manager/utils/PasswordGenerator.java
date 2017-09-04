@@ -24,6 +24,7 @@ package com.tobiadeyinka.me.android.modules.password_manager.utils;
 public class PasswordGenerator {
 
     public String generatePassword(){
+        //TODO implement password generator feature
         return "";
     }
 

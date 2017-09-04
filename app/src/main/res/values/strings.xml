@@ -28,4 +28,7 @@
     <string name="new_password" translatable="true">New Password</string>
     <string name="website_or_app" translatable="true">Website/App</string>
     <string name="email_or_username" translatable="true">Email/Username</string>
+
+    <string name="error_1" translatable="true">An account identifier is required</string>
+    <string name="error_2" translatable="true">Please fill in the account password</string>
 </resources>

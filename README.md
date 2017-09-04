@@ -23,7 +23,7 @@ but mostly for fun. I have plans for a web interface as well, but that's a littl
     
     
 ## Installation / Running
-As of now, there is no functional release version as I'm still in the early stages of development but if you are interested in building the app:
+The app isn't available on the play store yet but you can download the release apk's [here](https://github.com/EtherealT/me.-android/releases). If you are interested in building the app yourself:
 * You should have the [Android SDK](https://developer.android.com/studio/index.html) installed
 * You should also have [Gradle](https://gradle.org) installed
 * To build: ```gradle assembleDebug``` or ```gradle installDebug``` to build and install immediately on an emulator or connected device
