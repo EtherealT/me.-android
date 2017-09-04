@@ -42,9 +42,10 @@
             android:padding="5dp"
             android:layout_gravity="center"
             android:textSize="20sp"
-            android:textStyle="bold"
+            android:textStyle="normal"
             android:gravity="center_vertical"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="monospace"/>
     </LinearLayout>
 
 </RelativeLayout>
