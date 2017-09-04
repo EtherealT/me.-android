@@ -22,7 +22,7 @@ import android.content.Context;
 import android.content.ContentValues;
 
 import com.tobiadeyinka.me.android.config.ConfigValues;
-import com.tobiadeyinka.me.android.modules.finance_manger.entities.FinanceEntry;
+import com.tobiadeyinka.me.android.modules.finance_manager.entities.FinanceEntry;
 import com.tobiadeyinka.me.android.database.content_providers.FinanceEntriesProvider;
 
 import java.util.UUID;

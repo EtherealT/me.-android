@@ -32,7 +32,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="com.tobiadeyinka.me.android.activities.SplashActivity"
+            android:name=".android.modules.main.activities.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -43,20 +43,20 @@
         </activity>
 
         <activity
-            android:name="com.tobiadeyinka.me.android.activities.PasswordActivity"
+            android:name=".android.modules.main.activities.PasswordActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateVisible|adjustResize" />
 
         <activity
-            android:name="com.tobiadeyinka.me.android.activities.MainActivity"
+            android:name=".android.modules.main.activities.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <activity 
-            android:name="com.tobiadeyinka.me.android.activities.SettingsActivity" 
+            android:name=".android.modules.main.activities.SettingsActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
         <activity 
-            android:name="com.tobiadeyinka.me.android.activities.NewSitePasswordActivity"
+            android:name="com.tobiadeyinka.me.android.modules.password_manager.activities.NewSitePasswordActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <provider

@@ -21,6 +21,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.tobiadeyinka.me.android.activities.SettingsActivity">
+    tools:context=".android.modules.main.activities.SettingsActivity">
 
 </RelativeLayout>

@@ -21,9 +21,7 @@ import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 
 import com.tobiadeyinka.me.android.AndroidTest;
-import com.tobiadeyinka.me.android.modules.finance_manger.entities.Currency;
-import com.tobiadeyinka.me.android.modules.finance_manger.entities.FinanceAccount;
-import com.tobiadeyinka.me.android.modules.finance_manger.entities.FinanceAccountType;
+import com.tobiadeyinka.me.android.modules.finance_manager.entities.*;
 
 import org.junit.*;
 

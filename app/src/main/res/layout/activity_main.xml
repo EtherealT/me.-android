@@ -26,12 +26,12 @@
         android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.tobiadeyinka.me.android.entities.CustomViewPager
+        <com.tobiadeyinka.me.android.modules.main.entities.CustomViewPager
             android:id="@+id/main_activity_view_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        </com.tobiadeyinka.me.android.entities.CustomViewPager>
+        </com.tobiadeyinka.me.android.modules.main.entities.CustomViewPager>
 
     </LinearLayout>
 
