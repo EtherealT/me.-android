@@ -41,6 +41,7 @@ import static android.support.test.espresso.action.ViewActions.scrollTo;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.contrib.DrawerMatchers.isClosed;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 
 /**
  * Created by Tobi Adeyinka on 2017. 09. 04..
@@ -75,8 +76,12 @@ public class PasswordManagerUITests extends AndroidTest {
          * fill in account identifier and password and save,
          * then verify the database has one entry
          */
-        onView(withId(R.id.account_identifier_input)).perform(typeText(username));
-        onView(withId(R.id.password_input)).perform(typeText(password));
+        onView(withId(R.id.account_identifier_input)).perform(typeText(username), closeSoftKeyboard());
+
+        onView(withId(R.id.password_input))
+                .perform(scrollTo())
+                .perform(typeText(password), closeSoftKeyboard());
+
         onView(withId(R.id.save_password_button))
                 .perform(scrollTo())
                 .perform(click());
