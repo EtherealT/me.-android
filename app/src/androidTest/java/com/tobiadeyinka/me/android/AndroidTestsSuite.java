@@ -23,7 +23,6 @@ import com.tobiadeyinka.me.android.utilities.SecurityManagerTest;
 import com.tobiadeyinka.me.android.networking.apis.forismatic_quotes.QuotesQueriesTest;
 import com.tobiadeyinka.me.android.networking.apis.open_weather_map.WeatherQueriesTest;
 import com.tobiadeyinka.me.android.ui_tests.modules.password_manager.PasswordManagerUITests;
-import com.tobiadeyinka.me.android.ui_tests.modules.password_manager.NewSitePasswordActivityUITest;
 
 import org.junit.runners.Suite;
 import org.junit.runner.RunWith;
@@ -43,7 +42,6 @@ import org.junit.runner.RunWith;
         PasswordManagerUITests.class,
         SitePasswordsRepositoryTest.class,
         FinanceEntriesRepositoryTest.class,
-        FinanceAccountsRepositoryTest.class,
-        NewSitePasswordActivityUITest.class
+        FinanceAccountsRepositoryTest.class
 })
 public class AndroidTestsSuite {}
