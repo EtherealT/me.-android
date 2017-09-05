@@ -108,7 +108,7 @@ public class NewSitePasswordActivity extends AppCompatActivity {
 
                     sitePasswordsRepository.insert(sitePassword);
                     finish();
-                };
+                }
             }
         });
     }

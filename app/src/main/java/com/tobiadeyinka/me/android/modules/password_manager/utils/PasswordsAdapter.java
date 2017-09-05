@@ -134,10 +134,10 @@ public class PasswordsAdapter extends RecyclerView.Adapter<PasswordsAdapter.Pass
 
     class PasswordViewHolder extends RecyclerView.ViewHolder implements ItemTouchHelperViewHolder {
 
-        ImageView siteLogoImage;
-        TextView siteNameTextView;
-        TextView accountIdentifierTextView;
-        LinearLayout itemWrap;
+        private ImageView siteLogoImage;
+        private TextView siteNameTextView;
+        private TextView accountIdentifierTextView;
+        private LinearLayout itemWrap;
 
         PasswordViewHolder(View itemView) {
             super(itemView);
@@ -147,7 +147,7 @@ public class PasswordsAdapter extends RecyclerView.Adapter<PasswordsAdapter.Pass
             accountIdentifierTextView = (TextView)itemView.findViewById(R.id.account_identifier_text_view);
         }
 
-        void bind(int position){
+        public void bind(int position){
             SitePassword password = data.get(position);
             siteLogoImage.setImageResource(password.getLogoResourceId());
             siteNameTextView.setText(password.getSiteName());

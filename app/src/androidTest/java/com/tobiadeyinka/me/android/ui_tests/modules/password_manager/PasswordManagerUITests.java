@@ -56,14 +56,13 @@ public class PasswordManagerUITests extends AndroidTest {
     @Rule
     public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(MainActivity.class);
 
-    private MainActivity activity;
     private SitePasswordsRepository repository;
 
     @Before
     public void setUp() {
         Context context = InstrumentationRegistry.getTargetContext();
         repository = new SitePasswordsRepository(context);
-        activity = activityTestRule.getActivity();
+        emptyDatabase();
     }
 
     @Test
