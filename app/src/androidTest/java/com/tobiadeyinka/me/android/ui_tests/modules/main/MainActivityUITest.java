@@ -20,6 +20,7 @@ package com.tobiadeyinka.me.android.ui_tests.modules.main;
 import android.view.Gravity;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.espresso.intent.Intents;
+import android.support.test.espresso.matcher.ViewMatchers;
 
 import com.tobiadeyinka.me.R;
 import com.tobiadeyinka.me.android.AndroidTest;
@@ -27,14 +28,13 @@ import com.tobiadeyinka.me.android.modules.main.activities.MainActivity;
 import com.tobiadeyinka.me.android.modules.main.activities.SettingsActivity;
 import com.tobiadeyinka.me.android.modules.password_manager.activities.NewSitePasswordActivity;
 
-import android.support.test.espresso.matcher.ViewMatchers;
-
 import org.junit.Rule;
 import org.junit.Test;
 
+import static com.tobiadeyinka.me.android.TestUtils.clickButton;
+
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.intent.Intents.intended;
-import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.contrib.DrawerActions.open;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.action.ViewActions.swipeLeft;
@@ -183,10 +183,6 @@ public class MainActivityUITest extends AndroidTest{
         onView(withId(R.id.main_activity_drawer))
                 .check(matches(isClosed(Gravity.LEFT))) // Left Drawer should be closed.
                 .perform(open());
-    }
-
-    private void clickButton(int buttonId){
-        onView(withId(buttonId)).perform(click());
     }
 
     private void swipeViewPagerLeft(int numberOfSwipes){

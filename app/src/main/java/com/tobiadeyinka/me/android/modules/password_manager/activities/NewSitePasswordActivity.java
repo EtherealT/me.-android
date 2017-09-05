@@ -97,18 +97,18 @@ public class NewSitePasswordActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String accountIdentifier = accountIdentifierInput.getText().toString();
                 String password = passwordInput.getText().toString();
-                validateInput(accountIdentifier, password);
+                if(validateInput(accountIdentifier, password)){
+                    Website website = WebsitesManager.getWEBSITES()[siteSelector.getSelectedItemPosition()];
+                    SitePassword sitePassword = new SitePassword(
+                            website.getName(),
+                            accountIdentifier,
+                            password,
+                            website.getLogoResourceId()
+                    );
 
-                Website website = WebsitesManager.getWEBSITES()[siteSelector.getSelectedItemPosition()];
-                SitePassword sitePassword = new SitePassword(
-                        website.getName(),
-                        accountIdentifier,
-                        password,
-                        website.getLogoResourceId()
-                );
-
-                sitePasswordsRepository.insert(sitePassword);
-                finish();
+                    sitePasswordsRepository.insert(sitePassword);
+                    finish();
+                };
             }
         });
     }

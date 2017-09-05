@@ -22,22 +22,58 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.support.design.widget.FloatingActionButton;
 
 import com.tobiadeyinka.me.R;
 import com.tobiadeyinka.me.android.modules.main.activities.MainActivity;
+import com.tobiadeyinka.me.android.database.repositories.SitePasswordsRepository;
+import com.tobiadeyinka.me.android.modules.password_manager.entities.SitePassword;
+import com.tobiadeyinka.me.android.modules.password_manager.utils.PasswordsAdapter;
+import com.tobiadeyinka.me.android.utilities.list_adapter_utils.helpers.OnStartDragListener;
 import com.tobiadeyinka.me.android.modules.password_manager.activities.NewSitePasswordActivity;
+import com.tobiadeyinka.me.android.utilities.list_adapter_utils.helpers.SimpleItemTouchHelperCallback;
+
+import java.util.ArrayList;
 
 /**
  * Created by Tobi Adeyinka on 2017. 08. 24..
  */
 
-public class PasswordsFragment extends Fragment {
+public class PasswordsFragment extends Fragment implements OnStartDragListener {
+
+    /*
+     * touch helper for swipe/drag/drop support
+     */
+    private ItemTouchHelper itemTouchHelper;
+
+    /*
+     * recycler view adapter
+     */
+    private PasswordsAdapter passwordsAdapter;
+
+    /*
+     * all site passwords in db
+     */
+    private ArrayList<SitePassword> sitePasswords;
+
+    /*
+     * for querying db
+     */
+    private SitePasswordsRepository sitePasswordsRepository;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_passwords_main_activity, container, false);
+
+        sitePasswordsRepository = new SitePasswordsRepository(getContext());
+        sitePasswords = sitePasswordsRepository.getAll();
+        passwordsAdapter = new PasswordsAdapter(getContext(), sitePasswords, this);
+
+        setUpPasswordsList(rootView);
         setupFloatingActionButton(rootView);
         return rootView;
     }
@@ -46,6 +82,25 @@ public class PasswordsFragment extends Fragment {
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         if (this.isVisible()) ((MainActivity)getActivity()).restoreWindowLimits();
+    }
+
+    @Override
+    public void onResume() {
+        sitePasswords.clear();
+        sitePasswords.addAll(sitePasswordsRepository.getAll());
+        passwordsAdapter.notifyDataSetChanged();
+        super.onResume();
+    }
+
+    private void setUpPasswordsList(ViewGroup rootView){
+        RecyclerView recyclerView = (RecyclerView)rootView.findViewById(R.id.site_passwords_recycler_view);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(passwordsAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(passwordsAdapter);
+        itemTouchHelper = new ItemTouchHelper(callback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 
     private void setupFloatingActionButton(ViewGroup rootView){
@@ -62,4 +117,8 @@ public class PasswordsFragment extends Fragment {
         });
     }
 
+    @Override
+    public void onStartDrag(RecyclerView.ViewHolder viewHolder) {
+        itemTouchHelper.startDrag(viewHolder);
+    }
 }

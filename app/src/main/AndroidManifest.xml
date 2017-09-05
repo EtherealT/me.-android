@@ -59,6 +59,11 @@
             android:name="com.tobiadeyinka.me.android.modules.password_manager.activities.NewSitePasswordActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
+        <activity
+            android:name="com.tobiadeyinka.me.android.modules.password_manager.activities.ViewSitePasswordActivity"
+            android:theme="@style/CustomDialogActivity"
+            android:excludeFromRecents="true"/>
+
         <provider
             android:name="com.tobiadeyinka.me.android.database.content_providers.FinanceAccountsProvider"
             android:authorities="com.tobiadeyinka.me.android.database.content_providers.financeaccountsprovider"

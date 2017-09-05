@@ -22,4 +22,5 @@
     <color name="colorAccent">#F2635F</color>
     <color name="grey">#3D3D3D</color>
     <color name="greyB">#E5E5E5</color>
+    <color name="greyC">#F0F0F0</color>
 </resources>
