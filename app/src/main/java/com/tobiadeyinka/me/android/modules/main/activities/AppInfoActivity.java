@@ -24,7 +24,11 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.tobiadeyinka.me.R;
 
-public class SettingsActivity extends AppCompatActivity {
+/**
+ * Created by Tobi Adeyinka on 2017. 09. 19..
+ */
+
+public class AppInfoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -24,8 +24,7 @@ import android.support.test.espresso.matcher.ViewMatchers;
 
 import com.tobiadeyinka.me.R;
 import com.tobiadeyinka.me.android.AndroidTest;
-import com.tobiadeyinka.me.android.modules.main.activities.MainActivity;
-import com.tobiadeyinka.me.android.modules.main.activities.SettingsActivity;
+import com.tobiadeyinka.me.android.modules.main.activities.*;
 import com.tobiadeyinka.me.android.modules.password_manager.activities.NewSitePasswordActivity;
 
 import org.junit.Rule;
@@ -122,6 +121,18 @@ public class MainActivityUITest extends AndroidTest{
         openDrawer();
         clickButton(R.id.settings_button);
         intended(hasComponent(SettingsActivity.class.getName()));
+        Intents.release();
+    }
+
+    /*
+     * verify that the app info activity is launched when the about button is clicked
+     */
+    @Test
+    public void testAboutButtonClick(){
+        Intents.init();
+        openDrawer();
+        clickButton(R.id.about_button);
+        intended(hasComponent(AppInfoActivity.class.getName()));
         Intents.release();
     }
 

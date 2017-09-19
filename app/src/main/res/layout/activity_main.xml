@@ -241,6 +241,36 @@
                         android:textColor="@color/colorPrimaryDark"/>
                 </LinearLayout>
 
+                <LinearLayout
+                    android:id="@+id/about_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="6"
+                    android:clickable="true"
+                    android:background="@drawable/module_button_back">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@mipmap/ic_logo_small"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:paddingRight="10dp"
+                        android:layout_gravity="center_vertical|start"
+                        android:fontFamily="monospace"
+                        android:textSize="18sp"
+                        android:text="@string/about"
+                        android:textColor="@color/colorPrimaryDark"/>
+                </LinearLayout>
+
             </LinearLayout>
         </ScrollView>
         

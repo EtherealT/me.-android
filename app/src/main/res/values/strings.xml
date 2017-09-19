@@ -17,6 +17,7 @@
 <resources>
     <string name="app_name">Me.</string>
     <string name="save" translatable="true">Save</string>
+    <string name="about" translatable="true">About</string>
     <string name="tasks" translatable="true">Tasks</string>
     <string name="unlock" translatable="true">Unlock</string>
     <string name="journal" translatable="true">Journal</string>

@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
         setupPasswordsButtonListener();
         setupJournalButtonLister();
         setupSettingsButtonListener();
+        setupAboutButtonListener();
     }
 
     private void setupDashboardButtonListener(){
@@ -162,6 +163,20 @@ public class MainActivity extends AppCompatActivity {
                  * launch the settings activity
                  */
                 Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void setupAboutButtonListener(){
+        LinearLayout settingsButton = (LinearLayout)findViewById(R.id.about_button);
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*
+                 * launch the app info activity
+                 */
+                Intent intent = new Intent(getApplicationContext(), AppInfoActivity.class);
                 startActivity(intent);
             }
         });
