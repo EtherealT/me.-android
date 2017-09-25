@@ -31,7 +31,7 @@ import com.tobiadeyinka.me.android.database.config.DatabaseHelper;
  * Created by Tobi Adeyinka on 2017. 08. 25..
  */
 
-public class SitePasswordsTable {
+public class SitePasswordsTable implements DatabaseTable {
 
     private SQLiteDatabase database;
 
@@ -40,10 +40,12 @@ public class SitePasswordsTable {
         database = databaseHelper.getWritableDatabase();
     }
 
+    @Override
     public void insert(ContentValues cv){
         database.insert(ConfigValues.SITE_PASSWORDS_TABLE, null, cv);
     }
 
+    @Override
     public void update(ContentValues values, String selection, String[] selectionArgs) {
         database.update(
                 ConfigValues.SITE_PASSWORDS_TABLE,
@@ -53,6 +55,7 @@ public class SitePasswordsTable {
         );
     }
 
+    @Override
     @Nullable
     public Cursor query(@Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
         return database.query(
@@ -66,6 +69,7 @@ public class SitePasswordsTable {
         );
     }
 
+    @Override
     public void delete(@Nullable String selection, @Nullable String[] selectionArgs){
         database.delete(
                 ConfigValues.SITE_PASSWORDS_TABLE,
